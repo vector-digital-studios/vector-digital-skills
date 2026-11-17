@@ -1,0 +1,27 @@
+name: validar
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Frontmatter, saneado y autopruebas
+        env:
+          SANEAR_EXTRA: ${{ secrets.SANEAR_EXTRA }}
+        run: python tools/validar.py
+      # El escáner se encuentra a sí mismo (sus patrones y el proyecto trampa de la autoprueba parecen
+      # fallos), así que aquí solo bloquean los secretos reales (SEC-01) en código e historia de Git.
+      - name: Secretos en toda la historia
+        run: |
+          python skills/seguridad/ciberseguridad-vibecoder/scripts/vd_sec_scan.py repo . --history --out escaneo.json || true
+          python -c "import json,sys; h=[x for x in json.load(open('escaneo.json',encoding='utf-8'))['hallazgos'] if x['control']=='SEC-01' and x['estado']=='confirmado']; [print(x['titulo'],x['evidencia']) for x in h]; sys.exit(1 if h else 0)"

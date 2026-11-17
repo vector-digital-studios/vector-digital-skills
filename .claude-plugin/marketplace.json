@@ -1,0 +1,21 @@
+{
+  "name": "vector-digital-skills",
+  "owner": {
+    "name": "Vector Digital"
+  },
+  "metadata": {
+    "description": "Skills de agentes de IA probadas en producción por Vector Digital, en español",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "seguridad",
+      "description": "Seguridad para webs, apps, juegos e IA hechos con agentes: Escudo VD-44 (44 controles, escáner pasivo, puerta pre-lanzamiento)",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/seguridad/ciberseguridad-vibecoder"
+      ]
+    }
+  ]
+}

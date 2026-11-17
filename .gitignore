@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.sanear-local.txt
+node_modules/
+*.json.out
+informe*.json
