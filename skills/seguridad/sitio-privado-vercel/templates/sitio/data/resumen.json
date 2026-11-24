@@ -1,0 +1,17 @@
+{
+  "titulo": "Panel de la Huerta Comunitaria Los Sauces",
+  "actualizado": "2026-11-20",
+  "nota": "Datos inventados para la plantilla.",
+  "cifras": [
+    { "etiqueta": "Socios activos", "valor": "48" },
+    { "etiqueta": "Cosecha del mes (kg)", "valor": "312" },
+    { "etiqueta": "Fondo común", "valor": "S/ 1 240" },
+    { "etiqueta": "Turnos de riego libres", "valor": "6" }
+  ],
+  "entradas": [
+    { "fecha": "2026-11-20", "texto": "Llegaron 20 plantines de tomate cherry para el bancal 3." },
+    { "fecha": "2026-11-17", "texto": "Reparada la bomba de riego; el turno del martes vuelve a la normalidad." },
+    { "fecha": "2026-11-12", "texto": "Asamblea: se aprueba comprar una compostera de 400 litros." },
+    { "fecha": "2026-11-08", "texto": "Taller de semillas con 14 asistentes." }
+  ]
+}

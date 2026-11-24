@@ -1,0 +1,21 @@
+{
+  "_nota": "EJEMPLO INVENTADO.",
+  "etapas": [
+    {
+      "texto": "Reescribí con mi agente el cálculo de mareas de Mareo, la app que avisa a surfistas cuándo coinciden marea, viento y oleaje, y me costó 34 minutos y 1,80 dólares de modelo.",
+      "imagen": "tarjeta.png"
+    },
+    {
+      "texto": "La versión vieja fallaba en marea baja con luna llena, y en dos semanas le puse tres parches que arreglaban un caso y rompían otro, así que dejé de parchear."
+    },
+    {
+      "texto": "Le pedí la reescritura completa con una condición: mis 27 pruebas tenían que seguir pasando sin que nadie las tocara, porque eran lo único que me decía si el cálculo nuevo era mejor."
+    },
+    {
+      "texto": "Salieron 412 líneas nuevas con todo en verde y yo puse unos 15 minutos de revisión, que es lo que de verdad cuesta cuando ya tienes las pruebas escritas."
+    },
+    {
+      "texto": "La próxima semana hago lo mismo con el aviso de viento por playa y voy a medir el tramo del agente igual, con hora de inicio y de fin, para comparar los dos casos."
+    }
+  ]
+}

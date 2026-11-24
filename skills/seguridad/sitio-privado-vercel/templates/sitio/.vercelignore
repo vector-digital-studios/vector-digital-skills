@@ -1,0 +1,29 @@
+# Lo que NO se publica. Sin este archivo Vercel sube TODA la carpeta, incluidas las que empiezan por punto.
+# Después de cada despliegue, comprueba con curl que cada resto responde 404 (ver references/despliegue.md).
+
+# Secretos y configuración local
+.env
+.env.*
+.vercel/
+
+# Documentación, notas y respaldos
+*.md
+*.bak*
+*.orig
+*.old
+*.log
+
+# Herramientas locales
+scripts/
+node_modules/
+__pycache__/
+*.py
+*.sh
+*.ps1
+
+# Carpetas de agentes y editores
+.agents/
+.claude/
+.codex/
+.vscode/
+.idea/

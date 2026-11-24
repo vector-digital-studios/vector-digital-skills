@@ -80,6 +80,8 @@ def main():
             rel = os.path.relpath(fp, RAIZ).replace("\\", "/")
             if rel == "tools/validar.py":
                 continue  # contiene los propios patrones
+            if fn == "package-lock.json" or fn.endswith(".min.js") or "/dist/" in f"/{rel}":
+                continue  # generados por herramientas (hashes y código minificado dan falsos positivos)
             txt = open(fp, encoding="utf-8", errors="replace").read()
             for pat, nombre in GENERICOS:
                 for m in re.finditer(pat, txt):

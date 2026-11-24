@@ -1,0 +1,43 @@
+{
+  "_nota": "EJEMPLO INVENTADO: proyecto, persona y cifras ficticios.",
+  "hito_id": "mareo-motor-v2",
+  "proyecto": "Mareo",
+  "que_se_hizo": "El agente reescribió el cálculo que cruza marea, viento y oleaje",
+  "decision_clave": "Reescribir el cálculo entero en vez de parchear la versión que fallaba con mareas de luna llena",
+  "numeros": [
+    {
+      "valor": "34 min",
+      "significado": "trabajo del agente en el tramo",
+      "origen": "marcas de tiempo de la sesión (14:02 → 14:36)"
+    },
+    {
+      "valor": "US$ 1,80",
+      "significado": "costo de modelo del tramo",
+      "origen": "resumen de uso de la sesión del agente"
+    },
+    {
+      "valor": "412",
+      "significado": "líneas nuevas",
+      "origen": "git diff --stat del commit"
+    },
+    {
+      "valor": "27/27",
+      "significado": "pruebas en verde",
+      "origen": "salida de la batería de pruebas"
+    }
+  ],
+  "tiempos": {
+    "agente_min": 34,
+    "humano_min": 15
+  },
+  "costo_modelo": "US$ 1,80",
+  "que_fallo": "La versión 1 daba olas buenas en marea baja de luna llena",
+  "que_sigue": "El aviso de viento por playa, la próxima semana",
+  "publico_quiere": [
+    "cuánto cuesta de verdad una reescritura hecha por un agente",
+    "cómo saber que no rompió nada",
+    "cuándo reescribir en vez de parchear"
+  ],
+  "artefacto_visual": "tarjeta con 3 métricas",
+  "tipo_sugerido": "historia"
+}

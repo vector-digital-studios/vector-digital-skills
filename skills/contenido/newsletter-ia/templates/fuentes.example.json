@@ -1,0 +1,47 @@
+{
+  "_comentario": "Configuración de ejemplo. Feeds públicos comprobados el 2026-11-24. Cambia la audiencia, los pesos y las categorías a tu lente editorial.",
+  "newsletter": {
+    "nombre": "Radar IA",
+    "audiencia": "desarrolladores y equipos pequeños que construyen productos con IA",
+    "idioma": "es",
+    "items": 5,
+    "pregunta_de_impacto": "¿Qué cambia esta semana para alguien que construye productos con IA: costo, capacidad, riesgo o una herramienta nueva que probar?"
+  },
+  "fuentes": [
+    {"nombre": "OpenAI News", "url": "https://openai.com/news/rss.xml", "tipo": "primaria", "peso": 1.5},
+    {"nombre": "Google AI Blog", "url": "https://blog.google/technology/ai/rss/", "tipo": "primaria", "peso": 1.5},
+    {"nombre": "Google DeepMind", "url": "https://deepmind.google/blog/rss.xml", "tipo": "primaria", "peso": 1.5},
+    {"nombre": "NVIDIA Blog", "url": "https://blogs.nvidia.com/feed/", "tipo": "primaria", "peso": 1.2},
+    {"nombre": "Hugging Face Blog", "url": "https://huggingface.co/blog/feed.xml", "tipo": "primaria", "peso": 1.3},
+    {"nombre": "AWS Machine Learning Blog", "url": "https://aws.amazon.com/blogs/machine-learning/feed/", "tipo": "primaria", "peso": 0.8},
+    {"nombre": "TechCrunch AI", "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "tipo": "medio", "peso": 1.2},
+    {"nombre": "The Verge AI", "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "tipo": "medio", "peso": 1.1},
+    {"nombre": "Ars Technica AI", "url": "https://arstechnica.com/ai/feed/", "tipo": "medio", "peso": 1.1},
+    {"nombre": "MIT Technology Review AI", "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed", "tipo": "medio", "peso": 1.1}
+  ],
+  "criterios": {
+    "ventana_horas": 36,
+    "palabras_clave": {
+      "open source": 2, "open-weight": 2, "open weights": 2, "release": 1, "launch": 1, "launches": 1,
+      "model": 1, "agent": 1.5, "agents": 1.5, "pricing": 2, "price": 1.5, "cheaper": 2, "free": 1.5,
+      "api": 1, "developers": 1.5, "coding": 1.5, "benchmark": 1, "security": 1.5, "vulnerability": 2,
+      "regulation": 1.5, "lawsuit": 1, "copyright": 1, "acquisition": 1, "funding": 0.5, "video": 1, "voice": 1
+    },
+    "descartar_si": ["webinar", "podcast", "deal of the day", "sponsored"],
+    "rubrica_relevancia": {
+      "10": "cambia hoy el costo, la capacidad o el riesgo de lo que construye tu audiencia",
+      "8-9": "impacto estratégico u operativo a corto plazo",
+      "6-7": "tendencia de la industria con efecto indirecto",
+      "<=5": "no entra en la edición"
+    }
+  },
+  "categorias": {
+    "Modelos": {"color": "#9B59B6", "claves": ["model", "llm", "gpt", "gemini", "claude", "llama", "weights", "benchmark"]},
+    "Agentes y herramientas": {"color": "#FF6A00", "claves": ["agent", "agents", "coding", "developer", "developers", "api", "sdk", "tool"]},
+    "Infraestructura": {"color": "#4A90D9", "claves": ["gpu", "chip", "chips", "data center", "datacenter", "compute", "inference"]},
+    "Empresa": {"color": "#3498DB", "claves": ["enterprise", "business", "customers", "adoption", "productivity"]},
+    "Legal y gobernanza": {"color": "#E74C3C", "claves": ["regulation", "law", "lawsuit", "copyright", "policy", "court", "act"]},
+    "Finanzas e inversión": {"color": "#2ECC71", "claves": ["funding", "raises", "valuation", "acquisition", "ipo", "investment"]},
+    "Seguridad": {"color": "#F1C40F", "claves": ["security", "vulnerability", "attack", "breach", "safety", "jailbreak"]}
+  }
+}

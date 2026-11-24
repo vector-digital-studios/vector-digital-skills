@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Feed FICTICIO para pruebas sin red: nombres, enlaces y hechos inventados. -->
+<rss version="2.0"><channel><title>Laboratorio Ejemplo</title><link>https://ejemplo.org</link>
+<item><title>Laboratorio Ejemplo launches open-weight model for coding agents</title><link>https://ejemplo.org/blog/modelo-abierto</link>
+<pubDate>Mon, 23 Nov 2026 15:00:00 GMT</pubDate><description>A fictional open weights release with cheaper pricing for developers.</description></item>
+<item><title>Join our webinar on AI strategy</title><link>https://ejemplo.org/blog/webinar</link>
+<pubDate>Mon, 23 Nov 2026 12:00:00 GMT</pubDate><description>Sponsored webinar.</description></item>
+<item><title>Old news from last month about chips</title><link>https://ejemplo.org/blog/viejo</link>
+<pubDate>Fri, 23 Oct 2026 10:00:00 GMT</pubDate><description>Too old for the window.</description></item>
+<item><title>New security vulnerability found in agent sandbox</title><link>https://ejemplo.org/blog/vulnerabilidad</link>
+<pubDate>Mon, 23 Nov 2026 18:30:00 GMT</pubDate><description>A fictional security issue affecting agents.</description></item>
+</channel></rss>

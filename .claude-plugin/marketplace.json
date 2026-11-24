@@ -4,17 +4,108 @@
     "name": "Vector Digital"
   },
   "metadata": {
-    "description": "Skills de agentes de IA probadas en producción por Vector Digital, en español",
-    "version": "1.0.0"
+    "description": "Skills de agentes de IA probadas en producción por Vector Digital, en español: 14 skills en 8 dominios",
+    "version": "1.1.0"
   },
   "plugins": [
     {
-      "name": "seguridad",
-      "description": "Seguridad para webs, apps, juegos e IA hechos con agentes: Escudo VD-44 (44 controles, escáner pasivo, puerta pre-lanzamiento)",
+      "name": "completo",
+      "description": "Todas las skills de Vector Digital de una vez (14 skills en 8 dominios)",
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/seguridad/ciberseguridad-vibecoder"
+        "./skills/contenido/build-in-public",
+        "./skills/contenido/newsletter-ia",
+        "./skills/datos/informe-movil",
+        "./skills/investigacion/backtest-sin-trampas",
+        "./skills/metodo/disciplina-agente",
+        "./skills/operacion/disco-c-a-d",
+        "./skills/operacion/salud-equipo-windows",
+        "./skills/operacion/vigilancia-camaras",
+        "./skills/salud/registro-comidas",
+        "./skills/seguridad/auditoria-repos-terceros",
+        "./skills/seguridad/ciberseguridad-vibecoder",
+        "./skills/seguridad/sitio-privado-vercel",
+        "./skills/video/grabador-demos-ui",
+        "./skills/video/teleprompter"
+      ]
+    },
+    {
+      "name": "seguridad",
+      "description": "Seguridad para lo que construyes con agentes: auditoría VD-44, login real para sitios estáticos en Vercel y auditoría de repos ajenos antes de instalarlos",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/seguridad/ciberseguridad-vibecoder",
+        "./skills/seguridad/sitio-privado-vercel",
+        "./skills/seguridad/auditoria-repos-terceros"
+      ]
+    },
+    {
+      "name": "datos",
+      "description": "Informes HTML para el celular desde Markdown, sellados con pruebas de legibilidad a 390 px",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/datos/informe-movil"
+      ]
+    },
+    {
+      "name": "salud",
+      "description": "Registro de comidas conversando con tu agente: calorías y macros en JSON y panel PWA sin servidor",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/salud/registro-comidas"
+      ]
+    },
+    {
+      "name": "operacion",
+      "description": "Operación de Windows: vigilancia con cámara y Telegram, salud del equipo y liberar C: sin romper rutas",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/operacion/vigilancia-camaras",
+        "./skills/operacion/salud-equipo-windows",
+        "./skills/operacion/disco-c-a-d"
+      ]
+    },
+    {
+      "name": "metodo",
+      "description": "Disciplina de ingeniería para agentes: causa raíz, depuración por pasos, cambios mínimos y CAPA",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/metodo/disciplina-agente"
+      ]
+    },
+    {
+      "name": "investigacion",
+      "description": "Investigación de estrategias sin autoengaño: pre-registro, bóveda sellada y control de sesgos",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/investigacion/backtest-sin-trampas"
+      ]
+    },
+    {
+      "name": "contenido",
+      "description": "Contenido con cifras reales: posts de build in public y newsletter diario de IA con fuentes",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/contenido/build-in-public",
+        "./skills/contenido/newsletter-ia"
+      ]
+    },
+    {
+      "name": "video",
+      "description": "Video: demos de producto grabadas solas (guion JSON a MP4/GIF) y teleprompter por voz para grabar a cámara",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/video/grabador-demos-ui",
+        "./skills/video/teleprompter"
       ]
     }
   ]

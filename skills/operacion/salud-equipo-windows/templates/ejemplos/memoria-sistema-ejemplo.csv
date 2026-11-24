@@ -1,0 +1,5 @@
+ts,modo,uptime_h,ram_total_mb,ram_libre_mb,ram_disponible_mb,comprometida_mb,limite_comprometida_mb,pagefile_uso_mb,pagefile_pico_mb,paginas_entrada_s,paginas_salida_s,cache_standby_mb,cpu_pct,disco_pct
+2026-11-01 10:00:00,reposo,5.0,16384,3000,6100,15000,28000,2000,2500,0,0,2900,10,3
+2026-11-01 10:10:00,intenso,5.2,16384,400,1300,26600,28000,6100,6200,120,340,900,95,60
+2026-11-01 10:20:00,intenso,5.3,16384,300,980,27100,28000,6400,6500,150,410,700,97,70
+2026-11-02 08:00:00,reposo,0.2,16384,6000,9200,9000,28000,500,500,0,0,3000,5,2

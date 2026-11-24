@@ -1,0 +1,12 @@
+{
+  "titulo": "Mis comidas",
+  "idioma": "es",
+  "meta": {
+    "kcal": 1800,
+    "protein": 110,
+    "fat": 65,
+    "carbs": 200
+  },
+  "semana_inicia": "lunes",
+  "nota": "Meta diaria por defecto. Un día puede sobrescribirla con su propio campo 'target'."
+}

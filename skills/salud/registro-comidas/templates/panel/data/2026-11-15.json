@@ -1,0 +1,174 @@
+{
+  "date": "2026-11-15",
+  "meals": [
+    {
+      "name": "Desayuno",
+      "time": "07:15",
+      "kcal": 502.3,
+      "protein": 16.8,
+      "fat": 9.0,
+      "carbs": 93.5,
+      "items": [
+        "Avena con plátano y leche"
+      ],
+      "ingredients": [
+        {
+          "name": "avena en hojuelas (seca)",
+          "qty": 55.0,
+          "unit": "g",
+          "g": 55.0,
+          "kcal": 208.5,
+          "protein": 7.2,
+          "fat": 3.6,
+          "carbs": 37.2
+        },
+        {
+          "name": "leche semidescremada",
+          "qty": 250.0,
+          "unit": "ml",
+          "g": 250.0,
+          "kcal": 125.0,
+          "protein": 8.2,
+          "fat": 5.0,
+          "carbs": 12.0
+        },
+        {
+          "name": "plátano",
+          "qty": 1.0,
+          "unit": "unidad",
+          "g": 118.0,
+          "kcal": 105.0,
+          "protein": 1.3,
+          "fat": 0.4,
+          "carbs": 27.0
+        },
+        {
+          "name": "miel",
+          "qty": 1.0,
+          "unit": "cucharada",
+          "g": 21.0,
+          "kcal": 63.8,
+          "protein": 0.1,
+          "fat": 0.0,
+          "carbs": 17.3
+        }
+      ]
+    },
+    {
+      "name": "Almuerzo",
+      "time": "13:00",
+      "kcal": 713.9,
+      "protein": 75.5,
+      "fat": 13.6,
+      "carbs": 69.9,
+      "items": [
+        "Bistec con papa sancochada y ensalada"
+      ],
+      "ingredients": [
+        {
+          "name": "bistec de res cocido",
+          "qty": 1.5,
+          "unit": "bistec",
+          "g": 225.0,
+          "kcal": 411.8,
+          "protein": 68.7,
+          "fat": 13.0,
+          "carbs": 0.0
+        },
+        {
+          "name": "papa sancochada",
+          "qty": 2.0,
+          "unit": "unidad",
+          "g": 300.0,
+          "kcal": 258.0,
+          "protein": 5.1,
+          "fat": 0.3,
+          "carbs": 60.0
+        },
+        {
+          "name": "tomate",
+          "qty": 1.0,
+          "unit": "unidad",
+          "g": 123.0,
+          "kcal": 22.1,
+          "protein": 1.1,
+          "fat": 0.2,
+          "carbs": 4.8
+        },
+        {
+          "name": "cebolla",
+          "qty": 0.5,
+          "unit": "unidad",
+          "g": 55.0,
+          "kcal": 22.0,
+          "protein": 0.6,
+          "fat": 0.1,
+          "carbs": 5.1
+        }
+      ]
+    },
+    {
+      "name": "Snack",
+      "time": "16:30",
+      "kcal": 150.0,
+      "protein": 1.8,
+      "fat": 7.4,
+      "carbs": 19.6,
+      "items": [
+        "Galletas con café"
+      ],
+      "ingredients": [
+        {
+          "name": "galleta con chispas de chocolate",
+          "qty": 2.0,
+          "unit": "unidad",
+          "g": 30.0,
+          "kcal": 147.6,
+          "protein": 1.5,
+          "fat": 7.4,
+          "carbs": 19.6
+        },
+        {
+          "name": "café pasado",
+          "qty": 1.0,
+          "unit": "taza",
+          "g": 237.0,
+          "kcal": 2.4,
+          "protein": 0.3,
+          "fat": 0.0,
+          "carbs": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Cena",
+      "time": "20:30",
+      "kcal": 980.0,
+      "protein": 38.0,
+      "fat": 48.0,
+      "carbs": 98.0,
+      "items": [
+        "Hamburguesa con papas (salida)"
+      ],
+      "ingredients": [
+        {
+          "name": "hamburguesa con papas (restaurante)",
+          "qty": 1.0,
+          "unit": "plato",
+          "kcal": 980.0,
+          "protein": 38.0,
+          "fat": 48.0,
+          "carbs": 98.0,
+          "fuente": "estimación: hamburguesa simple ×1,6 + papas fritas 150 g (USDA)"
+        }
+      ],
+      "note": "Plato de restaurante: porción estándar asumida"
+    }
+  ],
+  "daily_total": {
+    "kcal": 2346.2,
+    "protein": 132.1,
+    "fat": 78.0,
+    "carbs": 281.0
+  }
+}

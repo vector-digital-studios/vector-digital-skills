@@ -1,0 +1,23 @@
+{
+  "kicker": "Mareo · construir en público",
+  "titulo": "Reescribí el cálculo de mareas con mi agente en vez de parchearlo",
+  "metricas": [
+    {
+      "valor": "34",
+      "unidad": "min",
+      "etiqueta": "de trabajo del agente"
+    },
+    {
+      "valor": "1,80",
+      "unidad": "US$",
+      "etiqueta": "de costo de modelo"
+    },
+    {
+      "valor": "27/27",
+      "unidad": "",
+      "etiqueta": "pruebas en verde"
+    }
+  ],
+  "origen": "sesión del agente y batería de pruebas",
+  "firma": "Ejemplo ficticio"
+}

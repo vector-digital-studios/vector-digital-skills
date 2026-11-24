@@ -1,0 +1,52 @@
+{
+  "_nota": "EJEMPLO INVENTADO: proyecto, persona y cifras ficticios.",
+  "hito_id": "mareo-motor-v2",
+  "proyecto": "Mareo",
+  "autor": "Lucía · ejemplo ficticio",
+  "hito": "Reescribir el cálculo de mareas con un agente: 34 minutos y 1,80 dólares",
+  "variantes": {
+    "A": {
+      "formato": "historia",
+      "texto": "Le pedí a mi agente que reescribiera el cálculo de mareas de Mareo y tardó 34 minutos, pero lo que me sorprendió fue el costo: 1,80 dólares de modelo para 412 líneas que pasan las 27 pruebas que ya tenía, así que mañana le toca al aviso de viento."
+    },
+    "B": {
+      "formato": "pregunta",
+      "texto": "Parchear o reescribir: con la versión vieja del cálculo de mareas llevaba 3 parches en 2 semanas, y reescribirla con mi agente costó 34 minutos y 1,80 dólares de modelo. ¿En qué punto decides tú que un módulo ya no se parchea más?"
+    }
+  },
+  "linkedin": {
+    "formato": "historia",
+    "texto": "Reescribí el corazón de mi app en 34 minutos y por 1,80 dólares de modelo.\n\nMareo avisa a surfistas cuándo coinciden marea, viento y oleaje en su playa. La primera versión del cálculo fallaba en marea baja con luna llena, y en dos semanas le había puesto tres parches que arreglaban un caso y rompían otro.\n\nAsí que cambié de estrategia y le pedí a mi agente de código que lo reescribiera desde cero. Le puse una sola condición, que las 27 pruebas que ya tenía siguieran pasando sin tocarlas.\n\nEl resultado fueron 412 líneas nuevas, las 27 pruebas en verde y unos 15 minutos míos de revisión, leyendo los cambios con calma. Lo que más me sirvió fue haber escrito esas pruebas antes, porque sin ellas no habría sabido si la reescritura era mejor o solo distinta.\n\nTres cosas que me llevo para la próxima:\n\nUna batería de pruebas es lo que convierte una reescritura en una decisión barata, y sin ella el costo real es la incertidumbre.\n\nMedir el tramo exacto del agente, con hora de inicio y fin, evita contar como costo de una tarea lo que fue una sesión de toda la tarde.\n\nCuando un módulo acumula parches que se contradicen, reescribirlo suele salir más barato que entenderlo.\n\nLa próxima semana le toca al aviso de viento por playa, y voy a medir lo mismo para comparar.\n\n¿Tú en qué momento dejas de parchear un módulo y lo reescribes?"
+  },
+  "imagenes": [
+    {
+      "archivo": "tarjeta.png",
+      "tipo": "tarjeta con cifras reales del hito",
+      "dimensiones": "1200x675",
+      "alt": "Tarjeta oscura con el título Reescribí el cálculo de mareas con mi agente y tres cifras: 34 minutos de trabajo del agente, 1,80 dólares de modelo y 27 de 27 pruebas en verde."
+    }
+  ],
+  "numeros_usados": [
+    {
+      "valor": "34 min",
+      "significado": "trabajo del agente",
+      "origen": "marcas de tiempo de la sesión"
+    },
+    {
+      "valor": "US$ 1,80",
+      "significado": "costo de modelo",
+      "origen": "resumen de uso de la sesión"
+    },
+    {
+      "valor": "412",
+      "significado": "líneas nuevas",
+      "origen": "git diff --stat"
+    },
+    {
+      "valor": "27/27",
+      "significado": "pruebas en verde",
+      "origen": "salida de las pruebas"
+    }
+  ],
+  "hora_sugerida": "cuando puedas responder durante la primera hora"
+}

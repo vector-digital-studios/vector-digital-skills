@@ -1,0 +1,11 @@
+Procedencia de una skill o herramienta de terceros (copiar junto a la carpeta instalada como ORIGEN.txt)
+
+repo:        https://github.com/acme-ejemplo/link-checker-skill
+ruta:        skills/link-checker
+commit:      <sha completo del commit auditado>
+fecha:       2026-11-24
+licencia:    MIT (LICENSE conservado en esta carpeta)
+auditoria:   auditar.py 1.0.0 -> ADOPTAR CON CONDICIONES (informe: auditoria-link-checker.html)
+condiciones: instalar sin scripts de npm; fijar este commit
+excluido:    skills/link-fixer (escribe en archivos sin confirmar)
+actualizar:  volver a auditar antes de cambiar de commit

@@ -1,0 +1,29 @@
+{
+  "_ayuda": "Copia este archivo, cambia los valores y pásalo con --criterios. Notas de 0 a 10. Riesgo, licencia y mantenimiento los calcula auditar.py (una nota manual de riesgo o licencia se ignora). Datos de ejemplo: repo ficticio.",
+  "utilidad": {
+    "nota": 7,
+    "evidencia": "revisa enlaces rotos en ~30 documentos por semana; hoy se hace a mano (≈1 h/semana)"
+  },
+  "costo": {
+    "nota": 9,
+    "evidencia": "gratis; corre local; 30 min de integración medidos en la prueba"
+  },
+  "integracion": {
+    "nota": 8,
+    "evidencia": "CLI de Python sin dependencias; encaja en el paso de CI existente"
+  },
+  "etiquetas": {
+    "costo": "gratis (sin factura de terceros)",
+    "computo": "local"
+  },
+  "alternativas": [
+    {"nombre": "lo que ya se tiene (revisión manual)", "costo": "≈1 h/semana", "nota": 4, "por_que": "funciona pero se olvida"},
+    {"nombre": "acción de CI genérica de enlaces", "costo": "gratis", "nota": 6, "por_que": "no entiende las rutas relativas del repo"}
+  ],
+  "cuando_si": "cuando se publiquen más de 10 documentos por semana o se rompa un enlace en producción",
+  "repo": {
+    "full_name": "acme-ejemplo/link-checker-skill",
+    "pushed_at": "2026-10-30",
+    "archivado": false
+  }
+}

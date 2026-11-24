@@ -1,0 +1,12 @@
+{
+  "name": "informe-movil-sello",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mediciones del sello de informe-movil (Chrome sin pantalla a 390 px).",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=22.12" },
+  "dependencies": {
+    "puppeteer-core": "25.18.1"
+  }
+}

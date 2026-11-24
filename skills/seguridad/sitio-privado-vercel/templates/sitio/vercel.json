@@ -1,0 +1,39 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/data/(.*)",
+      "dest": "/api/data?file=$1",
+      "headers": {
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "no-referrer",
+        "X-Robots-Tag": "noindex, nofollow"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "headers": {
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; report-uri /api/csp-report; report-to csp",
+        "Reporting-Endpoints": "csp=\"/api/csp-report\"",
+        "Strict-Transport-Security": "max-age=63072000; includeSubDomains",
+        "X-Frame-Options": "DENY",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "no-referrer",
+        "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=()",
+        "Cross-Origin-Opener-Policy": "same-origin",
+        "Cross-Origin-Resource-Policy": "same-origin",
+        "X-Robots-Tag": "noindex, nofollow",
+        "Cache-Control": "no-cache, must-revalidate"
+      },
+      "continue": true
+    },
+    {
+      "handle": "filesystem"
+    }
+  ],
+  "functions": {
+    "api/data.js": {
+      "includeFiles": "data/**"
+    }
+  }
+}
