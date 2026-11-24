@@ -1,8 +1,8 @@
 ---
 name: consejo-decisiones
 description: Usar al decir «invoca al consejo» ante decisiones duras
-version: 0.3.0
-author: Juan Pareja (Vector Digital)
+version: 0.3.1
+author: Vector Digital
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

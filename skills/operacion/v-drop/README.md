@@ -187,5 +187,4 @@ v-drop/
 
 ## License
 
-MIT — see [LICENSE](LICENSE). Built by [Juan Pareja](https://github.com/JuanParejaGutierrez)
-with Alfred Protocol.
+MIT — see [LICENSE](LICENSE). Built by [Vector Digital](https://github.com/vector-digital-studios).

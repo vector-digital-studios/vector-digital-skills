@@ -205,7 +205,7 @@ consejo-decisiones/
 - Idea de un solo modelo con cinco lentes: Ole Lehmann.
 - Este repositorio es una reescritura propia: no copia el texto de ninguno de los dos.
 
-Autor: Juan Pareja · Vector Digital
+Autor: Vector Digital
 
 ## Licencia
 

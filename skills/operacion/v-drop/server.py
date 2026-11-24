@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-ALFRED PROTOCOL — V Drop v2
+VECTOR DIGITAL — V Drop v2
 Servidor local de transferencia de archivos (LAN). Sin dependencias externas.
 
 v2: envío entre dispositivos de la misma red.
@@ -441,7 +441,7 @@ def cleanup_loop():
 
 
 class Handler(BaseHTTPRequestHandler):
-    server_version = "AlfredProtocol/" + VERSION
+    server_version = "VDrop/" + VERSION
 
     # ------------------------------------------------------------- helpers
     def _authorized(self, qs):
@@ -652,9 +652,9 @@ class Handler(BaseHTTPRequestHandler):
             return
         if path == "/manifest.json":
             man = {
-                "name": "V Drop — Alfred Protocol",
+                "name": "V Drop",
                 "short_name": "V Drop",
-                "description": "Transferencia de archivos por WiFi local entre dispositivos, operada por Alfred Protocol.",
+                "description": "Transferencia de archivos por WiFi local entre dispositivos, sin nube.",
                 "lang": "es",
                 "id": "/",
                 "scope": "/",
@@ -1014,7 +1014,7 @@ def main():
     url = "http://%s:%d/" % (ip, PORT)
     if USE_TOKEN:
         url += "?k=%s" % TOKEN
-    log("Alfred Protocol V Drop v%s en línea" % VERSION)
+    log("V Drop v%s en línea" % VERSION)
     log("URL para el celular (misma red WiFi): %s" % url)
     log("Destino de archivos: %s" % UPLOAD_DIR)
     try:
