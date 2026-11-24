@@ -1,0 +1,203 @@
+{
+  "date": "2026-11-12",
+  "meals": [
+    {
+      "name": "Desayuno",
+      "time": "07:15",
+      "kcal": 495.8,
+      "protein": 17.1,
+      "fat": 9.1,
+      "carbs": 91.4,
+      "items": [
+        "Avena con plátano y leche"
+      ],
+      "ingredients": [
+        {
+          "name": "avena en hojuelas (seca)",
+          "qty": 50.0,
+          "unit": "g",
+          "g": 50.0,
+          "kcal": 189.5,
+          "protein": 6.6,
+          "fat": 3.3,
+          "carbs": 33.9
+        },
+        {
+          "name": "leche semidescremada",
+          "qty": 275.0,
+          "unit": "ml",
+          "g": 275.0,
+          "kcal": 137.5,
+          "protein": 9.1,
+          "fat": 5.4,
+          "carbs": 13.2
+        },
+        {
+          "name": "plátano",
+          "qty": 1.0,
+          "unit": "unidad",
+          "g": 118.0,
+          "kcal": 105.0,
+          "protein": 1.3,
+          "fat": 0.4,
+          "carbs": 27.0
+        },
+        {
+          "name": "miel",
+          "qty": 1.0,
+          "unit": "cucharada",
+          "g": 21.0,
+          "kcal": 63.8,
+          "protein": 0.1,
+          "fat": 0.0,
+          "carbs": 17.3
+        }
+      ]
+    },
+    {
+      "name": "Almuerzo",
+      "time": "13:15",
+      "kcal": 583.5,
+      "protein": 44.9,
+      "fat": 22.7,
+      "carbs": 50.2,
+      "items": [
+        "Salmón con quinua y brócoli"
+      ],
+      "ingredients": [
+        {
+          "name": "salmón cocido",
+          "qty": 1.0,
+          "unit": "filete",
+          "g": 150.0,
+          "kcal": 309.0,
+          "protein": 33.2,
+          "fat": 18.5,
+          "carbs": 0.0
+        },
+        {
+          "name": "quinua cocida",
+          "qty": 1.0,
+          "unit": "taza",
+          "g": 185.0,
+          "kcal": 222.0,
+          "protein": 8.1,
+          "fat": 3.6,
+          "carbs": 39.4
+        },
+        {
+          "name": "brócoli cocido",
+          "qty": 1.0,
+          "unit": "taza",
+          "g": 150.0,
+          "kcal": 52.5,
+          "protein": 3.6,
+          "fat": 0.6,
+          "carbs": 10.8
+        }
+      ]
+    },
+    {
+      "name": "Snack",
+      "time": "17:00",
+      "kcal": 188.9,
+      "protein": 31.7,
+      "fat": 0.7,
+      "carbs": 14.1,
+      "items": [
+        "Batido de proteína"
+      ],
+      "ingredients": [
+        {
+          "name": "proteína whey en polvo",
+          "qty": 1.0,
+          "unit": "scoop",
+          "g": 30.0,
+          "kcal": 105.6,
+          "protein": 23.4,
+          "fat": 0.5,
+          "carbs": 1.9
+        },
+        {
+          "name": "leche descremada",
+          "qty": 1.0,
+          "unit": "taza",
+          "g": 245.0,
+          "kcal": 83.3,
+          "protein": 8.3,
+          "fat": 0.2,
+          "carbs": 12.2
+        }
+      ]
+    },
+    {
+      "name": "Cena",
+      "time": "19:30",
+      "kcal": 329.7,
+      "protein": 31.2,
+      "fat": 20.2,
+      "carbs": 7.3,
+      "items": [
+        "Ensalada con atún y huevo duro"
+      ],
+      "ingredients": [
+        {
+          "name": "atún en agua escurrido",
+          "qty": 1.0,
+          "unit": "lata",
+          "g": 120.0,
+          "kcal": 103.2,
+          "protein": 23.3,
+          "fat": 1.2,
+          "carbs": 0.0
+        },
+        {
+          "name": "huevo duro",
+          "qty": 1.0,
+          "unit": "unidad",
+          "g": 50.0,
+          "kcal": 77.5,
+          "protein": 6.3,
+          "fat": 5.3,
+          "carbs": 0.6
+        },
+        {
+          "name": "lechuga",
+          "qty": 1.5,
+          "unit": "taza",
+          "g": 105.0,
+          "kcal": 14.7,
+          "protein": 0.9,
+          "fat": 0.1,
+          "carbs": 3.1
+        },
+        {
+          "name": "pepino",
+          "qty": 0.5,
+          "unit": "unidad",
+          "g": 100.0,
+          "kcal": 15.0,
+          "protein": 0.7,
+          "fat": 0.1,
+          "carbs": 3.6
+        },
+        {
+          "name": "aceite de oliva",
+          "qty": 1.0,
+          "unit": "cucharada",
+          "g": 13.5,
+          "kcal": 119.3,
+          "protein": 0.0,
+          "fat": 13.5,
+          "carbs": 0.0
+        }
+      ]
+    }
+  ],
+  "daily_total": {
+    "kcal": 1597.9,
+    "protein": 124.9,
+    "fat": 52.7,
+    "carbs": 163.0
+  }
+}

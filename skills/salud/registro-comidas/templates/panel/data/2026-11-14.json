@@ -1,0 +1,144 @@
+{
+  "date": "2026-11-14",
+  "meals": [
+    {
+      "name": "Desayuno",
+      "time": "07:15",
+      "kcal": 509.5,
+      "protein": 21.3,
+      "fat": 16.7,
+      "carbs": 69.3,
+      "items": [
+        "Pan con queso y jugo de naranja"
+      ],
+      "ingredients": [
+        {
+          "name": "pan francés",
+          "qty": 2.0,
+          "unit": "unidad",
+          "g": 80.0,
+          "kcal": 217.6,
+          "protein": 8.6,
+          "fat": 1.9,
+          "carbs": 41.5
+        },
+        {
+          "name": "queso fresco",
+          "qty": 2.0,
+          "unit": "tajada",
+          "g": 60.0,
+          "kcal": 179.4,
+          "protein": 10.9,
+          "fat": 14.3,
+          "carbs": 1.8
+        },
+        {
+          "name": "jugo de naranja natural",
+          "qty": 1.0,
+          "unit": "vaso",
+          "g": 250.0,
+          "kcal": 112.5,
+          "protein": 1.8,
+          "fat": 0.5,
+          "carbs": 26.0
+        }
+      ]
+    },
+    {
+      "name": "Almuerzo",
+      "time": "13:15",
+      "kcal": 694.5,
+      "protein": 49.0,
+      "fat": 24.4,
+      "carbs": 69.9,
+      "items": [
+        "Salmón con quinua y brócoli"
+      ],
+      "ingredients": [
+        {
+          "name": "salmón cocido",
+          "qty": 1.0,
+          "unit": "filete",
+          "g": 150.0,
+          "kcal": 309.0,
+          "protein": 33.2,
+          "fat": 18.5,
+          "carbs": 0.0
+        },
+        {
+          "name": "quinua cocida",
+          "qty": 1.5,
+          "unit": "taza",
+          "g": 277.5,
+          "kcal": 333.0,
+          "protein": 12.2,
+          "fat": 5.3,
+          "carbs": 59.1
+        },
+        {
+          "name": "brócoli cocido",
+          "qty": 1.0,
+          "unit": "taza",
+          "g": 150.0,
+          "kcal": 52.5,
+          "protein": 3.6,
+          "fat": 0.6,
+          "carbs": 10.8
+        }
+      ]
+    },
+    {
+      "name": "Snack",
+      "time": "17:00",
+      "kcal": 162.1,
+      "protein": 5.9,
+      "fat": 14.0,
+      "carbs": 6.0,
+      "items": [
+        "Puñado de almendras"
+      ],
+      "ingredients": [
+        {
+          "name": "almendras",
+          "qty": 1.0,
+          "unit": "puñado",
+          "g": 28.0,
+          "kcal": 162.1,
+          "protein": 5.9,
+          "fat": 14.0,
+          "carbs": 6.0
+        }
+      ]
+    },
+    {
+      "name": "Cena",
+      "time": "20:30",
+      "kcal": 980.0,
+      "protein": 38.0,
+      "fat": 48.0,
+      "carbs": 98.0,
+      "items": [
+        "Hamburguesa con papas (salida)"
+      ],
+      "ingredients": [
+        {
+          "name": "hamburguesa con papas (restaurante)",
+          "qty": 1.0,
+          "unit": "plato",
+          "kcal": 980.0,
+          "protein": 38.0,
+          "fat": 48.0,
+          "carbs": 98.0,
+          "fuente": "estimación: hamburguesa simple ×1,6 + papas fritas 150 g (USDA)"
+        }
+      ],
+      "note": "Plato de restaurante: porción estándar asumida"
+    }
+  ],
+  "daily_total": {
+    "kcal": 2346.1,
+    "protein": 114.2,
+    "fat": 103.1,
+    "carbs": 243.2
+  }
+}

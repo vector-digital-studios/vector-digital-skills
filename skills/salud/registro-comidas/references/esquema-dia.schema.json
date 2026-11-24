@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/vector-digital-studios/vector-digital-skills/registro-comidas/esquema-dia.schema.json",
+  "title": "Registro diario de comidas (registro-comidas)",
+  "type": "object",
+  "required": ["date", "meals", "daily_total"],
+  "properties": {
+    "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "meals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "kcal", "protein", "fat", "carbs"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "time": { "type": "string", "pattern": "^$|^~?([01]\\d|2[0-3]):[0-5]\\d$" },
+          "kcal": { "$ref": "#/$defs/noNeg" },
+          "protein": { "$ref": "#/$defs/noNeg" },
+          "fat": { "$ref": "#/$defs/noNeg" },
+          "carbs": { "$ref": "#/$defs/noNeg" },
+          "items": { "type": "array", "items": { "type": "string" } },
+          "note": { "type": "string" },
+          "ingredients": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name", "qty", "unit", "kcal", "protein", "fat", "carbs"],
+              "properties": {
+                "name": { "type": "string", "minLength": 1 },
+                "qty": { "type": "number", "exclusiveMinimum": 0 },
+                "unit": { "type": "string", "minLength": 1 },
+                "g": { "type": "number", "minimum": 0 },
+                "kcal": { "$ref": "#/$defs/noNeg" },
+                "protein": { "$ref": "#/$defs/noNeg" },
+                "fat": { "$ref": "#/$defs/noNeg" },
+                "carbs": { "$ref": "#/$defs/noNeg" },
+                "fuente": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "daily_total": { "$ref": "#/$defs/macros" },
+    "target": { "$ref": "#/$defs/macrosPos" }
+  },
+  "$defs": {
+    "noNeg": { "type": "number", "minimum": 0 },
+    "macros": {
+      "type": "object",
+      "required": ["kcal", "protein", "fat", "carbs"],
+      "properties": {
+        "kcal": { "$ref": "#/$defs/noNeg" }, "protein": { "$ref": "#/$defs/noNeg" },
+        "fat": { "$ref": "#/$defs/noNeg" }, "carbs": { "$ref": "#/$defs/noNeg" }
+      }
+    },
+    "macrosPos": {
+      "type": "object",
+      "required": ["kcal", "protein", "fat", "carbs"],
+      "properties": {
+        "kcal": { "type": "number", "exclusiveMinimum": 0 }, "protein": { "type": "number", "exclusiveMinimum": 0 },
+        "fat": { "type": "number", "exclusiveMinimum": 0 }, "carbs": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    }
+  }
+}

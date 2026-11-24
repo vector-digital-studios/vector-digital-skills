@@ -1,0 +1,173 @@
+{
+  "date": "2026-11-16",
+  "meals": [
+    {
+      "name": "Desayuno",
+      "time": "07:45",
+      "kcal": 509.5,
+      "protein": 21.3,
+      "fat": 16.7,
+      "carbs": 69.3,
+      "items": [
+        "Pan con queso y jugo de naranja"
+      ],
+      "ingredients": [
+        {
+          "name": "pan francés",
+          "qty": 2.0,
+          "unit": "unidad",
+          "g": 80.0,
+          "kcal": 217.6,
+          "protein": 8.6,
+          "fat": 1.9,
+          "carbs": 41.5
+        },
+        {
+          "name": "queso fresco",
+          "qty": 2.0,
+          "unit": "tajada",
+          "g": 60.0,
+          "kcal": 179.4,
+          "protein": 10.9,
+          "fat": 14.3,
+          "carbs": 1.8
+        },
+        {
+          "name": "jugo de naranja natural",
+          "qty": 1.0,
+          "unit": "vaso",
+          "g": 250.0,
+          "kcal": 112.5,
+          "protein": 1.8,
+          "fat": 0.5,
+          "carbs": 26.0
+        }
+      ]
+    },
+    {
+      "name": "Almuerzo",
+      "time": "13:00",
+      "kcal": 495.4,
+      "protein": 27.8,
+      "fat": 8.0,
+      "carbs": 78.3,
+      "items": [
+        "Lentejas con arroz y huevo frito"
+      ],
+      "ingredients": [
+        {
+          "name": "lentejas cocidas",
+          "qty": 1.0,
+          "unit": "taza",
+          "g": 198.0,
+          "kcal": 229.7,
+          "protein": 17.9,
+          "fat": 0.8,
+          "carbs": 39.9
+        },
+        {
+          "name": "arroz blanco cocido",
+          "qty": 135.0,
+          "unit": "g",
+          "g": 135.0,
+          "kcal": 175.5,
+          "protein": 3.6,
+          "fat": 0.4,
+          "carbs": 38.0
+        },
+        {
+          "name": "huevo frito",
+          "qty": 1.0,
+          "unit": "unidad",
+          "g": 46.0,
+          "kcal": 90.2,
+          "protein": 6.3,
+          "fat": 6.8,
+          "carbs": 0.4
+        }
+      ]
+    },
+    {
+      "name": "Snack",
+      "time": "16:00",
+      "kcal": 119.6,
+      "protein": 1.6,
+      "fat": 8.5,
+      "carbs": 9.2,
+      "items": [
+        "Chocolate amargo"
+      ],
+      "ingredients": [
+        {
+          "name": "chocolate amargo 70-85%",
+          "qty": 2.0,
+          "unit": "cuadrado",
+          "g": 20.0,
+          "kcal": 119.6,
+          "protein": 1.6,
+          "fat": 8.5,
+          "carbs": 9.2
+        }
+      ]
+    },
+    {
+      "name": "Cena",
+      "time": "19:30",
+      "kcal": 345.8,
+      "protein": 24.6,
+      "fat": 25.7,
+      "carbs": 3.9,
+      "items": [
+        "Omelette con champiñones"
+      ],
+      "ingredients": [
+        {
+          "name": "huevo",
+          "qty": 2.5,
+          "unit": "unidad",
+          "g": 125.0,
+          "kcal": 178.8,
+          "protein": 15.7,
+          "fat": 11.9,
+          "carbs": 0.9
+        },
+        {
+          "name": "champiñones",
+          "qty": 1.0,
+          "unit": "taza",
+          "g": 70.0,
+          "kcal": 15.4,
+          "protein": 2.2,
+          "fat": 0.2,
+          "carbs": 2.3
+        },
+        {
+          "name": "queso mozzarella",
+          "qty": 30.0,
+          "unit": "g",
+          "g": 30.0,
+          "kcal": 89.7,
+          "protein": 6.7,
+          "fat": 6.6,
+          "carbs": 0.7
+        },
+        {
+          "name": "aceite vegetal",
+          "qty": 0.5,
+          "unit": "cucharada",
+          "g": 7.0,
+          "kcal": 61.9,
+          "protein": 0.0,
+          "fat": 7.0,
+          "carbs": 0.0
+        }
+      ]
+    }
+  ],
+  "daily_total": {
+    "kcal": 1470.3,
+    "protein": 75.3,
+    "fat": 58.9,
+    "carbs": 160.7
+  }
+}

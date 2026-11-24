@@ -1,0 +1,173 @@
+{
+  "date": "2026-11-19",
+  "meals": [
+    {
+      "name": "Desayuno",
+      "time": "07:30",
+      "kcal": 509.5,
+      "protein": 21.3,
+      "fat": 16.7,
+      "carbs": 69.3,
+      "items": [
+        "Pan con queso y jugo de naranja"
+      ],
+      "ingredients": [
+        {
+          "name": "pan francés",
+          "qty": 2.0,
+          "unit": "unidad",
+          "g": 80.0,
+          "kcal": 217.6,
+          "protein": 8.6,
+          "fat": 1.9,
+          "carbs": 41.5
+        },
+        {
+          "name": "queso fresco",
+          "qty": 2.0,
+          "unit": "tajada",
+          "g": 60.0,
+          "kcal": 179.4,
+          "protein": 10.9,
+          "fat": 14.3,
+          "carbs": 1.8
+        },
+        {
+          "name": "jugo de naranja natural",
+          "qty": 1.0,
+          "unit": "vaso",
+          "g": 250.0,
+          "kcal": 112.5,
+          "protein": 1.8,
+          "fat": 0.5,
+          "carbs": 26.0
+        }
+      ]
+    },
+    {
+      "name": "Almuerzo",
+      "time": "13:15",
+      "kcal": 403.9,
+      "protein": 51.9,
+      "fat": 5.0,
+      "carbs": 39.1,
+      "items": [
+        "Tilapia con camote y arvejas"
+      ],
+      "ingredients": [
+        {
+          "name": "tilapia cocida",
+          "qty": 2.0,
+          "unit": "filete",
+          "g": 174.0,
+          "kcal": 222.7,
+          "protein": 45.5,
+          "fat": 4.6,
+          "carbs": 0.0
+        },
+        {
+          "name": "camote sancochado",
+          "qty": 1.0,
+          "unit": "unidad",
+          "g": 150.0,
+          "kcal": 114.0,
+          "protein": 2.1,
+          "fat": 0.2,
+          "carbs": 26.6
+        },
+        {
+          "name": "arvejas cocidas",
+          "qty": 0.5,
+          "unit": "taza",
+          "g": 80.0,
+          "kcal": 67.2,
+          "protein": 4.3,
+          "fat": 0.2,
+          "carbs": 12.5
+        }
+      ]
+    },
+    {
+      "name": "Snack",
+      "time": "16:30",
+      "kcal": 162.1,
+      "protein": 5.9,
+      "fat": 14.0,
+      "carbs": 6.0,
+      "items": [
+        "Puñado de almendras"
+      ],
+      "ingredients": [
+        {
+          "name": "almendras",
+          "qty": 1.0,
+          "unit": "puñado",
+          "g": 28.0,
+          "kcal": 162.1,
+          "protein": 5.9,
+          "fat": 14.0,
+          "carbs": 6.0
+        }
+      ]
+    },
+    {
+      "name": "Cena",
+      "time": "19:30",
+      "kcal": 345.8,
+      "protein": 24.6,
+      "fat": 25.7,
+      "carbs": 3.9,
+      "items": [
+        "Omelette con champiñones"
+      ],
+      "ingredients": [
+        {
+          "name": "huevo",
+          "qty": 2.5,
+          "unit": "unidad",
+          "g": 125.0,
+          "kcal": 178.8,
+          "protein": 15.7,
+          "fat": 11.9,
+          "carbs": 0.9
+        },
+        {
+          "name": "champiñones",
+          "qty": 1.0,
+          "unit": "taza",
+          "g": 70.0,
+          "kcal": 15.4,
+          "protein": 2.2,
+          "fat": 0.2,
+          "carbs": 2.3
+        },
+        {
+          "name": "queso mozzarella",
+          "qty": 30.0,
+          "unit": "g",
+          "g": 30.0,
+          "kcal": 89.7,
+          "protein": 6.7,
+          "fat": 6.6,
+          "carbs": 0.7
+        },
+        {
+          "name": "aceite vegetal",
+          "qty": 0.5,
+          "unit": "cucharada",
+          "g": 7.0,
+          "kcal": 61.9,
+          "protein": 0.0,
+          "fat": 7.0,
+          "carbs": 0.0
+        }
+      ]
+    }
+  ],
+  "daily_total": {
+    "kcal": 1421.3,
+    "protein": 103.7,
+    "fat": 61.4,
+    "carbs": 118.3
+  }
+}
