@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Nimbo · Panel de pedidos (demo ficticia)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  /* App de ejemplo 100 % inventada para probar el grabador. Sin red, sin dependencias. */
+  :root { --bg:#111214; --panel:#1a1b1e; --line:#2a2b30; --txt:#ececef; --mut:#9a9ba3; --acc:#FF6A00; --ok:#3ecf8e; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif; background:var(--bg); color:var(--txt);
+         display:grid; grid-template-columns:220px 1fr; min-height:100vh; }
+  aside { border-right:1px solid var(--line); padding:28px 18px; display:flex; flex-direction:column; gap:6px; }
+  .logo { font-weight:800; font-size:22px; letter-spacing:-.5px; margin-bottom:26px; }
+  .logo b { color:var(--acc); }
+  .nav { padding:10px 12px; border-radius:9px; color:var(--mut); cursor:pointer; font-size:15px; transition:.15s; }
+  .nav:hover { background:#202126; color:var(--txt); }
+  .nav.on { background:rgba(255,106,0,.13); color:var(--acc); font-weight:600; }
+  main { padding:30px 40px 60px; }
+  header { display:flex; align-items:center; justify-content:space-between; margin-bottom:26px; }
+  h1 { font-size:26px; letter-spacing:-.4px; }
+  h1 small { display:block; font-size:13px; color:var(--mut); font-weight:400; margin-top:4px; }
+  .btn { background:var(--acc); color:#111; font-weight:700; border:0; border-radius:10px; padding:12px 20px; font-size:15px;
+         cursor:pointer; transition:transform .12s, box-shadow .12s; }
+  .btn:hover { transform:translateY(-1px); box-shadow:0 8px 24px rgba(255,106,0,.35); }
+  .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:22px; }
+  .kpi { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px 20px; transition:.18s; }
+  .kpi:hover { border-color:var(--acc); transform:translateY(-2px); }
+  .kpi span { color:var(--mut); font-size:13px; }
+  .kpi strong { display:block; font-size:30px; margin:6px 0 2px; letter-spacing:-.6px; }
+  .kpi em { font-style:normal; font-size:13px; color:var(--ok); }
+  .grid2 { display:grid; grid-template-columns:1.4fr 1fr; gap:16px; margin-bottom:22px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px; }
+  .card h2 { font-size:15px; margin-bottom:16px; color:var(--mut); font-weight:600; }
+  .bars { display:flex; align-items:flex-end; gap:14px; height:190px; }
+  .bar { flex:1; background:linear-gradient(180deg,var(--acc),#a54300); border-radius:7px 7px 3px 3px; position:relative;
+         transition:filter .15s; }
+  .bar:hover { filter:brightness(1.25); }
+  .bar i { position:absolute; bottom:-22px; left:0; right:0; text-align:center; font-style:normal; font-size:12px; color:var(--mut); }
+  .bar b { position:absolute; top:-22px; left:0; right:0; text-align:center; font-size:12px; opacity:0; transition:.15s; }
+  .bar:hover b { opacity:1; }
+  .list li { list-style:none; display:flex; justify-content:space-between; padding:11px 0; border-bottom:1px solid var(--line); font-size:14px; }
+  .list li:last-child { border:0; }
+  .search { width:100%; background:#141518; border:1px solid var(--line); border-radius:10px; padding:12px 14px; color:var(--txt);
+            font-size:15px; margin-bottom:14px; outline:none; }
+  .search:focus { border-color:var(--acc); }
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  th { text-align:left; color:var(--mut); font-weight:600; padding:10px 8px; border-bottom:1px solid var(--line); }
+  td { padding:12px 8px; border-bottom:1px solid var(--line); }
+  tr.hide { display:none; }
+  .pill { padding:3px 10px; border-radius:20px; font-size:12px; font-weight:600; }
+  .p-ok { background:rgba(62,207,142,.14); color:var(--ok); } .p-wait { background:rgba(255,106,0,.14); color:var(--acc); }
+  .toast { position:fixed; right:30px; bottom:30px; background:#1f2024; border:1px solid var(--acc); border-radius:12px;
+           padding:16px 20px; font-size:15px; transform:translateY(220%); transition:transform .35s cubic-bezier(.2,.8,.2,1); }
+  .toast.show { transform:none; }
+  .foot { color:var(--mut); font-size:12px; margin-top:22px; }
+</style>
+</head>
+<body>
+<aside>
+  <div class="logo">nimbo<b>.</b></div>
+  <div class="nav on" id="nav-resumen">Resumen</div>
+  <div class="nav" id="nav-pedidos">Pedidos</div>
+  <div class="nav" id="nav-clientes">Clientes</div>
+  <div class="nav" id="nav-ajustes">Ajustes</div>
+</aside>
+<main>
+  <header>
+    <h1>Panel de pedidos <small>Tienda ficticia · datos inventados</small></h1>
+    <button class="btn" id="btn-informe">Generar informe</button>
+  </header>
+  <section class="kpis">
+    <div class="kpi" id="kpi-ventas"><span>Ventas del mes</span><strong>$48.2k</strong><em>+12,4 %</em></div>
+    <div class="kpi"><span>Pedidos</span><strong>1.284</strong><em>+8,1 %</em></div>
+    <div class="kpi"><span>Ticket medio</span><strong>$37,5</strong><em>+3,9 %</em></div>
+    <div class="kpi"><span>Devoluciones</span><strong>1,8 %</strong><em>−0,4 pp</em></div>
+  </section>
+  <section class="grid2">
+    <div class="card"><h2>Pedidos por semana</h2>
+      <div class="bars" id="grafico">
+        <div class="bar" style="height:42%"><b>212</b><i>S1</i></div>
+        <div class="bar" style="height:55%"><b>276</b><i>S2</i></div>
+        <div class="bar" style="height:49%"><b>248</b><i>S3</i></div>
+        <div class="bar" style="height:68%"><b>341</b><i>S4</i></div>
+        <div class="bar" style="height:61%"><b>307</b><i>S5</i></div>
+        <div class="bar" style="height:83%"><b>415</b><i>S6</i></div>
+        <div class="bar" id="bar-pico" style="height:96%"><b>482</b><i>S7</i></div>
+      </div>
+    </div>
+    <div class="card"><h2>Más vendidos</h2>
+      <ul class="list">
+        <li>Taza térmica Aurora<span>412</span></li>
+        <li>Mochila Cumbre 20 L<span>298</span></li>
+        <li>Libreta Punto Grid<span>251</span></li>
+        <li>Botella Brisa 750 ml<span>187</span></li>
+      </ul>
+    </div>
+  </section>
+  <section class="card" id="tabla">
+    <h2>Últimos pedidos</h2>
+    <input class="search" id="buscar" placeholder="Buscar cliente…" autocomplete="off">
+    <table>
+      <thead><tr><th>#</th><th>Cliente</th><th>Producto</th><th>Total</th><th>Estado</th></tr></thead>
+      <tbody id="filas">
+        <tr><td>1042</td><td>Marta Ruiz</td><td>Mochila Cumbre</td><td>$64,00</td><td><span class="pill p-ok">Enviado</span></td></tr>
+        <tr><td>1041</td><td>Tomás Vela</td><td>Taza Aurora ×2</td><td>$31,80</td><td><span class="pill p-wait">Pendiente</span></td></tr>
+        <tr><td>1040</td><td>Lucía Prado</td><td>Libreta Grid</td><td>$12,50</td><td><span class="pill p-ok">Enviado</span></td></tr>
+        <tr><td>1039</td><td>Mateo Lira</td><td>Botella Brisa</td><td>$22,00</td><td><span class="pill p-ok">Enviado</span></td></tr>
+        <tr><td>1038</td><td>Marina Sol</td><td>Taza Aurora</td><td>$15,90</td><td><span class="pill p-wait">Pendiente</span></td></tr>
+      </tbody>
+    </table>
+    <p class="foot">Todos los nombres y cifras de esta página son ficticios.</p>
+  </section>
+</main>
+<div class="toast" id="toast">✓ Informe semanal generado · 7 páginas</div>
+<script>
+  document.querySelectorAll('.nav').forEach(n => n.addEventListener('click', () => {
+    document.querySelectorAll('.nav').forEach(x => x.classList.remove('on')); n.classList.add('on');
+  }));
+  document.getElementById('btn-informe').addEventListener('click', () => {
+    const t = document.getElementById('toast'); t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2600);
+  });
+  document.getElementById('buscar').addEventListener('input', e => {
+    const q = e.target.value.toLowerCase();
+    document.querySelectorAll('#filas tr').forEach(r => r.classList.toggle('hide', !r.innerText.toLowerCase().includes(q)));
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "_comentario": "Montaje fino de la demo de ejemplo. 'root' es la carpeta de salida de grabar.js (relativa a este archivo). Tiempos de 'captions' en segundos del video final; zoom automático hacia clics y escritura.",
+  "root": "../salida-demo",
+  "out": "../salida-demo/demo.mp4",
+  "fps": 30, "width": 1920, "height": 1080, "crf": 20,
+  "auto_zoom": { "base": 1.12, "foco": 1.5 },
+  "crossfade_frames": 11,
+  "segments": [
+    {
+      "dir": "frames-panel",
+      "speed": 1.1,
+      "follow": 0.5,
+      "captions": [
+        [0.4, 3.2, "KPIS DEL MES, DE UN VISTAZO"],
+        [5.4, 8.0, "INFORME SEMANAL EN UN CLIC"],
+        [9.0, 12.4, "BÚSQUEDA INSTANTÁNEA"]
+      ]
+    }
+  ]
+}

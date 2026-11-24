@@ -1,0 +1,79 @@
+{
+  "_comentario": "Guion de ejemplo sobre la app ficticia templates/app-demo/index.html. Las rutas relativas se resuelven desde este archivo.",
+  "viewport": {
+    "w": 1600,
+    "h": 900
+  },
+  "steps": [
+    {
+      "op": "goto",
+      "url": "app-demo/index.html",
+      "ms": 800
+    },
+    {
+      "op": "wait",
+      "selector": "#btn-informe"
+    },
+    {
+      "op": "segment",
+      "name": "panel"
+    },
+    {
+      "op": "dwell",
+      "ms": 400
+    },
+    {
+      "op": "hover",
+      "target": "css:#kpi-ventas",
+      "dur": 800,
+      "hold": 500
+    },
+    {
+      "op": "move",
+      "target": "css:#grafico .bar:first-child",
+      "dur": 700
+    },
+    {
+      "op": "hover",
+      "target": "css:#bar-pico",
+      "dur": 1400,
+      "hold": 600
+    },
+    {
+      "op": "click",
+      "target": {
+        "text": "Generar informe"
+      },
+      "dur": 800,
+      "hold": 250
+    },
+    {
+      "op": "dwell",
+      "ms": 300
+    },
+    {
+      "op": "hover",
+      "target": "css:#toast",
+      "dur": 900,
+      "hold": 900
+    },
+    {
+      "op": "type",
+      "selector": "#buscar",
+      "value": "Mar",
+      "delay": 150,
+      "hold": 700
+    },
+    {
+      "op": "hover",
+      "target": {
+        "contains": "Marina Sol"
+      },
+      "dur": 700,
+      "hold": 1000
+    },
+    {
+      "op": "stop"
+    }
+  ]
+}
