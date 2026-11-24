@@ -1,0 +1,380 @@
+{
+ "version": 1,
+ "generado": "2026-11-24T09:12:00",
+ "sistema": "C:",
+ "perfil": "%USERPROFILE%",
+ "desde": null,
+ "nota": "DATOS INVENTADOS para la documentación: no corresponden a ningún equipo real.",
+ "unidades": [
+  {
+   "unidad": "C:",
+   "total": 511423230771,
+   "libre": 25555055411,
+   "usado": 485868175360
+  },
+  {
+   "unidad": "D:",
+   "total": 1000190509056,
+   "libre": 657559493017,
+   "usado": 342631016038
+  }
+ ],
+ "archivos_raiz": [
+  {
+   "ruta": "C:\\pagefile.sys",
+   "bytes": 17179869184
+  },
+  {
+   "ruta": "C:\\hiberfil.sys",
+   "bytes": 13636521164
+  }
+ ],
+ "arboles": [
+  {
+   "raiz": "C:\\",
+   "bytes": 435617057996,
+   "archivos": 1304300,
+   "bytes_nube": 3650722201,
+   "errores": 214,
+   "carpetas": [
+    {
+     "ruta": "%USERPROFILE%",
+     "nivel": 2,
+     "bytes": 332430468710,
+     "archivos": 1104300,
+     "ultima": 1795520880.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\AppData",
+     "nivel": 3,
+     "bytes": 148713242624,
+     "archivos": 701200,
+     "ultima": 1795520880.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\AppData\\Local",
+     "nivel": 4,
+     "bytes": 138297946931,
+     "archivos": 688000,
+     "ultima": 1795520880.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\AppData\\Local\\Packages",
+     "nivel": 5,
+     "bytes": 19542101196,
+     "archivos": 96000,
+     "ultima": 1795512240.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\AppData\\Local\\uv",
+     "nivel": 5,
+     "bytes": 15354508083,
+     "archivos": 118400,
+     "ultima": 1795494960.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\AppData\\Local\\uv\\cache",
+     "nivel": 6,
+     "bytes": 15354508083,
+     "archivos": 118400,
+     "ultima": 1795494960.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\AppData\\Local\\Google",
+     "nivel": 5,
+     "bytes": 12992276070,
+     "archivos": 41000,
+     "ultima": 1795520880.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\AppData\\Local\\Temp",
+     "nivel": 5,
+     "bytes": 12240656793,
+     "archivos": 52100,
+     "ultima": 1795525200.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\AppData\\Local\\Programs",
+     "nivel": 5,
+     "bytes": 10737418240,
+     "archivos": 21000,
+     "ultima": 1794838320.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\AppData\\Local\\npm-cache",
+     "nivel": 5,
+     "bytes": 10522669875,
+     "archivos": 61200,
+     "ultima": 1795443120.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\AppData\\Local\\Microsoft",
+     "nivel": 5,
+     "bytes": 10200547328,
+     "archivos": 88000,
+     "ultima": 1795520880.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\AppData\\Local\\pip",
+     "nivel": 5,
+     "bytes": 3328599654,
+     "archivos": 9100,
+     "ultima": 1794492720.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\AppData\\Local\\pip\\cache",
+     "nivel": 6,
+     "bytes": 3328599654,
+     "archivos": 9100,
+     "ultima": 1794492720.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\AppData\\Local\\ms-playwright",
+     "nivel": 5,
+     "bytes": 2791728742,
+     "archivos": 4100,
+     "ultima": 1793801520.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\.cache",
+     "nivel": 3,
+     "bytes": 50358491545,
+     "archivos": 3400,
+     "ultima": 1795270320.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\.cache\\huggingface",
+     "nivel": 4,
+     "bytes": 44775034060,
+     "archivos": 2210,
+     "ultima": 1795270320.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\.cache\\huggingface\\hub",
+     "nivel": 5,
+     "bytes": 44667659878,
+     "archivos": 2190,
+     "ultima": 1795270320.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\renders",
+     "nivel": 3,
+     "bytes": 42949672960,
+     "archivos": 2300,
+     "ultima": 1795011120.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\renders\\entregas-2026",
+     "nivel": 4,
+     "bytes": 41446434406,
+     "archivos": 1900,
+     "ultima": 1795011120.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\Documents",
+     "nivel": 3,
+     "bytes": 37580963840,
+     "archivos": 18200,
+     "ultima": 1795443120.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\Documents\\copias-telefono",
+     "nivel": 4,
+     "bytes": 33500744908,
+     "archivos": 9400,
+     "ultima": 1789481520.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\Videos",
+     "nivel": 3,
+     "bytes": 24159191040,
+     "archivos": 61,
+     "ultima": 1792073520.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\Videos\\grabaciones",
+     "nivel": 4,
+     "bytes": 23514945945,
+     "archivos": 48,
+     "ultima": 1792073520.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\proyectos",
+     "nivel": 3,
+     "bytes": 18575733555,
+     "archivos": 140200,
+     "ultima": 1795503600.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\proyectos\\video-demo",
+     "nivel": 4,
+     "bytes": 11166914969,
+     "archivos": 1900,
+     "ultima": 1795356720.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\proyectos\\app-web",
+     "nivel": 4,
+     "bytes": 6657199308,
+     "archivos": 98000,
+     "ultima": 1795503600.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\proyectos\\app-web\\node_modules",
+     "nivel": 5,
+     "bytes": 6120328396,
+     "archivos": 96500,
+     "ultima": 1794751920.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\Downloads",
+     "nivel": 3,
+     "bytes": 7301444403,
+     "archivos": 320,
+     "ultima": 1795097520.0
+    },
+    {
+     "ruta": "%USERPROFILE%\\OneDrive",
+     "nivel": 3,
+     "bytes": 966367641,
+     "archivos": 2400,
+     "ultima": 1795443120.0
+    },
+    {
+     "ruta": "C:\\Windows",
+     "nivel": 1,
+     "bytes": 54546084659,
+     "archivos": 212000,
+     "ultima": 1795520880.0
+    },
+    {
+     "ruta": "C:\\Windows\\WinSxS",
+     "nivel": 2,
+     "bytes": 15784004812,
+     "archivos": 80200,
+     "ultima": 1794233520.0
+    },
+    {
+     "ruta": "C:\\Program Files",
+     "nivel": 1,
+     "bytes": 25984552140,
+     "archivos": 98000,
+     "ultima": 1795011120.0
+    },
+    {
+     "ruta": "C:\\Windows.old",
+     "nivel": 1,
+     "bytes": 13851269529,
+     "archivos": 140000,
+     "ultima": 1790345520.0
+    },
+    {
+     "ruta": "C:\\ProgramData",
+     "nivel": 1,
+     "bytes": 8804682956,
+     "archivos": 41000,
+     "ultima": 1795512240.0
+    }
+   ],
+   "grandes": [],
+   "enlaces": [
+    {
+     "ruta": "%USERPROFILE%\\proyectos\\fotos-2025",
+     "destino": "D:\\archivo\\fotos-2025",
+     "roto": false
+    },
+    {
+     "ruta": "%USERPROFILE%\\.cache\\torch",
+     "destino": "D:\\caches\\torch",
+     "roto": false
+    }
+   ],
+   "categorias": {
+    "cache": 76772540416,
+    "temporal": 26091926323,
+    "regenerable": 6120328396,
+    "datos": 69041599283,
+    "proyecto": 60988535603,
+    "app": 93737661235,
+    "no_tocar": 100072737996,
+    "nube": 966367641,
+    "perfil": 1825361100
+   }
+  }
+ ],
+ "caches": [
+  {
+   "clave": "hf",
+   "herramienta": "Hugging Face",
+   "variable": "HF_HOME",
+   "valor": "",
+   "ruta": "%USERPROFILE%\\.cache\\huggingface",
+   "existe": true,
+   "unidad": "C:",
+   "bytes": 44775034060,
+   "limpiar": "huggingface-cli delete-cache",
+   "es_union": false
+  },
+  {
+   "clave": "uv",
+   "herramienta": "uv",
+   "variable": "UV_CACHE_DIR",
+   "valor": "",
+   "ruta": "%USERPROFILE%\\AppData\\Local\\uv\\cache",
+   "existe": true,
+   "unidad": "C:",
+   "bytes": 15354508083,
+   "limpiar": "uv cache clean",
+   "es_union": false
+  },
+  {
+   "clave": "npm",
+   "herramienta": "npm",
+   "variable": "npm_config_cache",
+   "valor": "",
+   "ruta": "%USERPROFILE%\\AppData\\Local\\npm-cache",
+   "existe": true,
+   "unidad": "C:",
+   "bytes": 10522669875,
+   "limpiar": "npm cache clean --force",
+   "es_union": false
+  },
+  {
+   "clave": "pip",
+   "herramienta": "pip",
+   "variable": "PIP_CACHE_DIR",
+   "valor": "",
+   "ruta": "%USERPROFILE%\\AppData\\Local\\pip\\cache",
+   "existe": true,
+   "unidad": "C:",
+   "bytes": 3328599654,
+   "limpiar": "pip cache purge",
+   "es_union": false
+  },
+  {
+   "clave": "playwright",
+   "herramienta": "Playwright",
+   "variable": "PLAYWRIGHT_BROWSERS_PATH",
+   "valor": "",
+   "ruta": "%USERPROFILE%\\AppData\\Local\\ms-playwright",
+   "existe": true,
+   "unidad": "C:",
+   "bytes": 2791728742,
+   "limpiar": "npx playwright uninstall",
+   "es_union": false
+  },
+  {
+   "clave": "torch",
+   "herramienta": "PyTorch",
+   "variable": "TORCH_HOME",
+   "valor": "D:\\caches\\torch",
+   "ruta": "D:\\caches\\torch",
+   "existe": true,
+   "unidad": "D:",
+   "bytes": 5583457484,
+   "limpiar": "(borrar pesos no usados a mano)",
+   "es_union": false
+  }
+ ],
+ "duracion_s": 212.4
+}
