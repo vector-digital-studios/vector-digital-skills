@@ -95,7 +95,7 @@ def comprobar(nombre, condicion, detalle=""):
 
 
 def escribible(funcion, ruta, _):
-    os.chmod(ruta, stat.S_IWRITE)
+    os.chmod(ruta, stat.S_IREAD | stat.S_IWRITE)
     funcion(ruta)
 
 
@@ -140,7 +140,7 @@ def main():
         c3 = base / "manipulado"
         shutil.copytree(str(c), str(c3))
         ruta = c3 / "encuadre.md"
-        os.chmod(str(ruta), stat.S_IWRITE)
+        os.chmod(str(ruta), stat.S_IREAD | stat.S_IWRITE)
         ruta.write_text(ruta.read_text(encoding="utf-8") + "\nUna línea añadida después del sello.\n",
                         encoding="utf-8")
         codigo, salida = correr(SCRIPTS / "sala.py", "sellar", c3, "encuadre.md")
