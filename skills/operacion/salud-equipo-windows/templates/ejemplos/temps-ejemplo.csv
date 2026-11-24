@@ -1,0 +1,10 @@
+﻿timestamp,celsius
+2026-11-01 09:00:00,ACPI\ThermalZone\TZ00_0:41.1
+2026-11-01 09:10:00,ACPI\ThermalZone\TZ00_0:43.5|ACPI\ThermalZone\TZ01_0:39.0
+2026-11-01 09:20:00,ERROR:Acceso denegado
+2026-11-01 09:30:00,52.0
+2026-11-01 09:40:00,ACPI\ThermalZone\TZ00_0:61.2
+2026-11-01 09:50:00,ACPI\ThermalZone\TZ00_0:72.4
+2026-11-01 13:50:00,ACPI\ThermalZone\TZ00_0:44.0
+2026-11-02 10:00:00,ACPI\ThermalZone\TZ00_0:47.3
+texto-roto,sin numero
