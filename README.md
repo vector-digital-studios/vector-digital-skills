@@ -2,10 +2,10 @@
 
 [![validar](https://github.com/vector-digital-studios/vector-digital-skills/actions/workflows/validar.yml/badge.svg)](https://github.com/vector-digital-studios/vector-digital-skills/actions/workflows/validar.yml)
 ![licencia MIT](https://img.shields.io/badge/licencia-MIT-FF6A00)
-![skills](https://img.shields.io/badge/skills-14-FF6A00)
+![skills](https://img.shields.io/badge/skills-16-FF6A00)
 ![idioma](https://img.shields.io/badge/idioma-espa%C3%B1ol%20%2B%20English-111214)
 
-**14 skills que usamos de verdad, a diario, en la operación de [Vector Digital Studios](https://github.com/vector-digital-studios)**,
+**16 skills que usamos de verdad, a diario, en la operación de [Vector Digital Studios](https://github.com/vector-digital-studios)**,
 limpiadas para que funcionen en tu máquina. Cada una trae su prueba automática, demo real y documentación en
 español e inglés. Funcionan en **Claude Code, Codex, Hermes Agent** o cualquier agente que lea `SKILL.md`.
 
@@ -28,7 +28,9 @@ regla tiene detrás un incidente que no queremos repetir. No publicamos nada que
 | seguridad | [auditoria-repos-terceros](skills/seguridad/auditoria-repos-terceros/) | Antes de instalar un repo o una skill ajena: seguridad + costo-beneficio → ADOPTAR / CON CONDICIONES / NO ADOPTAR | 1.0.0 |
 | operación | [vigilancia-camaras](skills/operacion/vigilancia-camaras/) | Alarma casera con la cámara del PC: OpenCV sin modelos de IA, alertas con foto por Telegram, armado automático cuando tu celular sale de casa | 1.0.0 |
 | operación | [salud-equipo-windows](skills/operacion/salud-equipo-windows/) | Diagnóstico de batería, temperatura, USB, memoria y arranque en Windows, con informe de semáforos | 1.0.0 |
+| operación | [v-drop](skills/operacion/v-drop/) | "AirDrop" casero: pasa archivos entre el celular y el PC por tu propio WiFi, sin nube ni cuentas, cero dependencias | 2.0.0 |
 | operación | [disco-c-a-d](skills/operacion/disco-c-a-d/) | Qué llena tu C: y cómo mover proyectos y cachés (npm, uv, Hugging Face…) a otra unidad **sin romper rutas** | 1.0.0 |
+| método | [consejo-decisiones](skills/metodo/consejo-decisiones/) | Un consejo de 9 papeles que delibera a ciegas sobre tus decisiones difíciles (contra la complacencia), con sala sellada y registro de predicciones | 0.3.1 |
 | método | [disciplina-agente](skills/metodo/disciplina-agente/) | Causa raíz antes del arreglo: depuración por pasos, cambios mínimos y acciones correctivas (CAPA) con validador | 1.0.0 |
 | investigación | [backtest-sin-trampas](skills/investigacion/backtest-sin-trampas/) | Investigar estrategias sin autoengaño: pre-registro, bóveda sellada que no se puede espiar, control de sesgos | 1.0.0 |
 | contenido | [build-in-public](skills/contenido/build-in-public/) | Posts de "construir en público" para X y LinkedIn con cifras verificables y un verificador de estilo | 1.0.0 |
@@ -87,7 +89,7 @@ auditoría reduce riesgo, no lo elimina. Para reportar un problema de seguridad 
 
 ## English
 
-**14 production-tested skills for AI coding agents** (Claude Code, Codex, Hermes Agent, or anything that reads
+**16 production-tested skills for AI coding agents** (Claude Code, Codex, Hermes Agent, or anything that reads
 `SKILL.md`), written in Spanish with full English sections in every README. Each skill ships with an automated
 self-test, a real demo and no private data. Highlights: **informe-movil** (Markdown → mobile-first HTML report,
 verified at 390 px), **registro-comidas** (log meals by chatting with your agent → JSON + serverless PWA),
