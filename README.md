@@ -2,10 +2,10 @@
 
 [![validar](https://github.com/vector-digital-studios/vector-digital-skills/actions/workflows/validar.yml/badge.svg)](https://github.com/vector-digital-studios/vector-digital-skills/actions/workflows/validar.yml)
 ![licencia MIT](https://img.shields.io/badge/licencia-MIT-FF6A00)
-![skills](https://img.shields.io/badge/skills-13-FF6A00)
+![skills](https://img.shields.io/badge/skills-14-FF6A00)
 ![idioma](https://img.shields.io/badge/idioma-espa%C3%B1ol%20%2B%20English-111214)
 
-**13 skills que usamos de verdad, a diario, en la operación de [Vector Digital Studios](https://github.com/vector-digital-studios)**,
+**14 skills que usamos de verdad, a diario, en la operación de [Vector Digital Studios](https://github.com/vector-digital-studios)**,
 limpiadas para que funcionen en tu máquina. Cada una trae su prueba automática, demo real y documentación en
 español e inglés. Funcionan en **Claude Code, Codex, Hermes Agent** o cualquier agente que lea `SKILL.md`.
 
@@ -34,23 +34,27 @@ regla tiene detrás un incidente que no queremos repetir. No publicamos nada que
 | contenido | [build-in-public](skills/contenido/build-in-public/) | Posts de "construir en público" para X y LinkedIn con cifras verificables y un verificador de estilo | 1.0.0 |
 | contenido | [newsletter-ia](skills/contenido/newsletter-ia/) | Newsletter diario de IA: fuentes RSS configurables, selección por impacto, cada noticia citada | 1.0.0 |
 | video | [grabador-demos-ui](skills/video/grabador-demos-ui/) | Guion JSON → video de producto MP4/GIF de tu interfaz web, con cursor visible y cámara que sigue la acción | 1.0.0 |
-
-También publicamos **[teleprompter](https://github.com/vector-digital-studios/voice-activated-teleprompter)**
-(v0.6.0-beta), un fork del teleprompter por voz de Julien Lecomte con modo manual, palabra activa resaltada y
-ventana "burbuja" siempre al frente para grabar en Windows.
+| video | [teleprompter](skills/video/teleprompter/) | Teleprompter por voz en el navegador: el guion avanza mientras hablas, modo manual y ventana siempre al frente en Windows. Basado en el proyecto MIT de Julien Lecomte | 0.6.0-beta |
 
 ## Instalar
+
+Cada skill es independiente: puedes instalar una sola, un dominio o todas.
 
 **Claude Code** (como plugin; se actualiza solo):
 ```
 /plugin marketplace add vector-digital-studios/vector-digital-skills
-/plugin install seguridad@vector-digital-skills
+/plugin install completo@vector-digital-skills      # todas
+/plugin install seguridad@vector-digital-skills     # solo un dominio
 ```
-Plugins disponibles (uno por dominio): `datos`, `salud`, `seguridad`, `operacion`, `metodo`, `investigacion`,
-`contenido`, `video`.
+Dominios: `datos`, `salud`, `seguridad`, `operacion`, `metodo`, `investigacion`, `contenido`, `video`.
 
-**Cualquier agente**: copia la carpeta de la skill en tu directorio de skills
-(`~/.claude/skills/`, `~/.codex/skills/`, `~/.hermes/skills/<categoría>/`).
+**Cualquier agente** (Codex, Hermes, Claude Code sin plugins):
+```
+git clone https://github.com/vector-digital-studios/vector-digital-skills.git
+cp -r vector-digital-skills/skills/*/* ~/.claude/skills/            # todas
+cp -r vector-digital-skills/skills/seguridad/sitio-privado-vercel ~/.claude/skills/   # solo una
+```
+(Para Codex usa `~/.codex/skills/`; para Hermes, `~/.hermes/skills/<categoría>/`.)
 
 ## Estándar de calidad (lo que exige el CI a cada skill)
 
@@ -83,7 +87,7 @@ auditoría reduce riesgo, no lo elimina. Para reportar un problema de seguridad 
 
 ## English
 
-**13 production-tested skills for AI coding agents** (Claude Code, Codex, Hermes Agent, or anything that reads
+**14 production-tested skills for AI coding agents** (Claude Code, Codex, Hermes Agent, or anything that reads
 `SKILL.md`), written in Spanish with full English sections in every README. Each skill ships with an automated
 self-test, a real demo and no private data. Highlights: **informe-movil** (Markdown → mobile-first HTML report,
 verified at 390 px), **registro-comidas** (log meals by chatting with your agent → JSON + serverless PWA),
@@ -93,4 +97,4 @@ sealed holdout), and a set of Windows operations skills (camera alarm with Teleg
 C: without breaking paths).
 
 Install in Claude Code with `/plugin marketplace add vector-digital-studios/vector-digital-skills`, then
-`/plugin install <domain>@vector-digital-skills`. MIT licensed.
+`/plugin install completo@vector-digital-skills` (everything) or `/plugin install <domain>@vector-digital-skills`. Every skill is self-contained. MIT licensed.

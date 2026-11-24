@@ -4,10 +4,32 @@
     "name": "Vector Digital"
   },
   "metadata": {
-    "description": "Skills de agentes de IA probadas en producción por Vector Digital, en español: 13 skills en 8 dominios",
+    "description": "Skills de agentes de IA probadas en producción por Vector Digital, en español: 14 skills en 8 dominios",
     "version": "1.1.0"
   },
   "plugins": [
+    {
+      "name": "completo",
+      "description": "Todas las skills de Vector Digital de una vez (14 skills en 8 dominios)",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/contenido/build-in-public",
+        "./skills/contenido/newsletter-ia",
+        "./skills/datos/informe-movil",
+        "./skills/investigacion/backtest-sin-trampas",
+        "./skills/metodo/disciplina-agente",
+        "./skills/operacion/disco-c-a-d",
+        "./skills/operacion/salud-equipo-windows",
+        "./skills/operacion/vigilancia-camaras",
+        "./skills/salud/registro-comidas",
+        "./skills/seguridad/auditoria-repos-terceros",
+        "./skills/seguridad/ciberseguridad-vibecoder",
+        "./skills/seguridad/sitio-privado-vercel",
+        "./skills/video/grabador-demos-ui",
+        "./skills/video/teleprompter"
+      ]
+    },
     {
       "name": "seguridad",
       "description": "Seguridad para lo que construyes con agentes: auditoría VD-44, login real para sitios estáticos en Vercel y auditoría de repos ajenos antes de instalarlos",
@@ -78,11 +100,12 @@
     },
     {
       "name": "video",
-      "description": "Demos de producto grabadas solas: guion JSON a MP4/GIF con cursor visible",
+      "description": "Video: demos de producto grabadas solas (guion JSON a MP4/GIF) y teleprompter por voz para grabar a cámara",
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/video/grabador-demos-ui"
+        "./skills/video/grabador-demos-ui",
+        "./skills/video/teleprompter"
       ]
     }
   ]
