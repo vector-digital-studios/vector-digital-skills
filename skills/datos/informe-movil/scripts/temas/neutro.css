@@ -1,0 +1,27 @@
+/* Tema «neutro» de informe-movil. Define SOLO variables de color (oscuro y claro).
+   Regla: todo texto debe cumplir contraste AA contra --s1/--s2/--bg; --onac es el texto sobre botones de acento.
+   Para crear uno propio: copie este archivo, cambie los valores y use  --tema ruta/a/mi-tema.css  */
+:root,html[data-t=light] .ver{color-scheme:dark;
+--bg:#0F1216;--s1:#161A20;--s2:#1C2129;--s3:#262C35;--n:#2A3039;--ln:#ffffff14;--ln2:#ffffff2b;
+--tx:#ECEFF3;--mu:#AAB3BF;--mu2:#8C96A3;--mu-rgb:170,179,191;
+--ac:#5B9DFF;--ac-rgb:91,157,255;--g1:#8DBBFF;--g2:#5B9DFF;--g3:#3B7BE0;--g1-rgb:141,187,255;--acd-rgb:31,95,196;--onac2:#0D2A52;--h1a:#DCE9FF;--onac:#06152B;--onseg:#06152B;--acs:rgba(var(--ac-rgb),.15);
+--ok:#3DBE8B;--ok-rgb:61,190,139;--oks:rgba(var(--ok-rgb),.15);
+--wa:#F2C94C;--wa-rgb:242,201,76;--was:rgba(var(--wa-rgb),.15);
+--ba:#F26B5B;--ba-rgb:242,107,91;--bas:rgba(var(--ba-rgb),.16);
+--in:#4CC3D9;--in-rgb:76,195,217;--ins:rgba(var(--in-rgb),.16);
+--c1:#5B9DFF;--c2:#4CC3D9;--c3:#F2C94C;--c4:#F26B5B;--c5:#A88CF2;--c6:#8B95A3;
+--sheen:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,0) 44%);
+--rim:linear-gradient(155deg,rgba(255,255,255,.32),rgba(255,255,255,.07) 34%,rgba(var(--t-rgb,var(--ac-rgb)),.36) 100%);
+--sh:0 18px 38px -26px rgba(0,0,0,.9);--glow:.7;--wb:650;--wm:600;
+--atm:radial-gradient(720px 480px at 98% -10%,rgba(var(--ac-rgb),.46),transparent 68%),radial-gradient(520px 420px at -8% 34%,rgba(var(--ac-rgb),.10),transparent 70%),radial-gradient(520px 380px at -2% -4%,rgba(var(--in-rgb),.12),transparent 70%),radial-gradient(560px 440px at 60% 116%,rgba(var(--ba-rgb),.08),transparent 70%);
+--navbg:rgba(15,18,22,.98);--topbg:rgba(15,18,22,.94)}
+html[data-t=light]{color-scheme:light;
+--bg:#EEF1F5;--s1:#FFFFFF;--s2:#F3F5F8;--s3:#DFE4EA;--ln:#292f3620;--ln2:#292f3638;
+--tx:#1C222B;--mu:#444E5A;--mu2:#515B67;--mu-rgb:68,78,90;
+--ac:#1A52AB;--onac:#06152B;--onseg:#06152B;--onac2:#0D2A52;--acs:rgba(var(--ac-rgb),.13);
+--ok:#12734F;--oks:rgba(var(--ok-rgb),.13);--wa:#775400;--wa-rgb:244,168,28;--was:rgba(var(--wa-rgb),.2);--c3:#F4A81C;--ba:#B3321F;--bas:rgba(var(--ba-rgb),.12);--in:#0B6A80;--ins:rgba(var(--in-rgb),.16);
+--sheen:linear-gradient(180deg,rgba(255,255,255,0) 38%,rgba(41,47,54,.045));
+--rim:linear-gradient(155deg,rgba(41,47,54,.30),rgba(41,47,54,.16) 46%,rgba(var(--t-rgb,var(--ac-rgb)),.40) 100%);
+--sh:0 0 0 1px rgba(41,47,54,.07),0 1px 2px rgba(41,47,54,.12),0 16px 28px -16px rgba(41,47,54,.52);--glow:.42;--wb:700;--wm:650;
+--atm:radial-gradient(660px 440px at 100% -8%,rgba(var(--ac-rgb),.24),transparent 66%),radial-gradient(540px 400px at -8% 52%,rgba(var(--ac-rgb),.07),transparent 70%);
+--navbg:rgba(255,255,255,.98);--topbg:rgba(238,241,245,.95)}
