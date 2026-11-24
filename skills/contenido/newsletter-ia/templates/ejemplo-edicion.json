@@ -1,0 +1,86 @@
+{
+  "_nota": "Edición de EJEMPLO con noticias reales y públicas del 23-nov-2026, elegidas con scripts/recolectar.py sobre los feeds de templates/fuentes.example.json. Cada dato se comprobó abriendo la fuente el 24-nov-2026. Los textos de impacto son opinión editorial del ejemplo.",
+  "nombre": "Radar IA",
+  "fecha": "2026-11-23",
+  "generado": "2026-11-24T07:40:00-05:00",
+  "consultado": "2026-11-24",
+  "titular": "Agentes que aprueban código; un escudo abierto para Linux sin reiniciar; Amazon compra eficiencia para competir con Nvidia",
+  "resumen_del_dia": "El lunes giró alrededor de los agentes que ya no solo escriben código sino que deciden qué pasa a producción, y de la seguridad que acompaña a ese salto. En paralelo, la carrera del hardware sigue moviéndose por la vía del software que exprime cada chip.",
+  "items": [
+    {
+      "rank": 1,
+      "titulo": "Anthropic lanza Claude Ship: agentes que revisan, corrigen y aprueban cambios de código",
+      "resumen": "Claude Ship suma a Code Review dos agentes en beta: PR Steward, que arregla CI fallida, conflictos y comentarios de revisión, y Claude Approvals, que aprueba cambios rutinarios según una política escrita en un archivo del repositorio. Se despliega para planes Team y Enterprise en GitHub.",
+      "relevancia": 10,
+      "por_que_relevante": "Mueve el cuello de botella de escribir código a aprobarlo, que es donde hoy se atascan los equipos que programan con agentes.",
+      "categorias": ["Agentes y herramientas", "Empresa"],
+      "categoria": "Agentes y herramientas",
+      "color": "#FF6A00",
+      "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+      "fuente": "TechCrunch — Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes",
+      "fecha_fuente": "2026-11-23",
+      "impacto": "Si tu equipo ya revisa PR generados por agentes, escribe hoy tu política de aprobación en lenguaje natural aunque no uses esta herramienta: es el insumo que cualquier aprobador automático va a pedir. Anthropic recomienda empezar en modo solo observación y con tope de gasto mensual."
+    },
+    {
+      "rank": 2,
+      "titulo": "OpenAI y Cisco presentan Shirudo, un runtime abierto que protege servidores Linux mientras llega el parche",
+      "resumen": "Shirudo usa eBPF para aplicar «escudos» temporales que bloquean el camino vulnerable sin reiniciar el servicio. En una prueba controlada, un escudo generado con Codex bloqueó un intento de explotación contra Elasticsearch en marcha. Los escudos van firmados y un operador los aprueba antes de cargarlos.",
+      "relevancia": 9,
+      "por_que_relevante": "Es código abierto y ataca el hueco real entre descubrir una vulnerabilidad y poder parchear todo.",
+      "categorias": ["Seguridad", "Agentes y herramientas"],
+      "categoria": "Seguridad",
+      "color": "#F1C40F",
+      "url": "https://openai.com/index/introducing-shirudo",
+      "fuente": "OpenAI — OpenAI and Cisco introduce Shirudo",
+      "fecha_fuente": "2026-11-23",
+      "impacto": "Si operas servicios Linux propios, vale la pena seguir el repositorio y probarlo en un entorno de pruebas: el modelo de «escudo aprobado por un humano» es el patrón sano para dejar que un agente toque producción."
+    },
+    {
+      "rank": 3,
+      "titulo": "Amazon compra la tecnología de optimización de Decart por 7.500 millones de dólares",
+      "resumen": "Según Bloomberg, citado por TechCrunch, Amazon pagará 7.500 millones por el Decart Optimization Stack, el software que hace que los modelos corran eficientes en hardware de Nvidia, Amazon y Google, y se queda con el equipo fundador e investigadores. Amazon se prepara para vender sus chips Trainium a clientes.",
+      "relevancia": 8,
+      "por_que_relevante": "Si correr modelos en Trainium resulta tan fácil como en Nvidia, el precio de la inferencia en la nube tiene un competidor más.",
+      "categorias": ["Infraestructura", "Finanzas e inversión"],
+      "categoria": "Infraestructura",
+      "color": "#4A90D9",
+      "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/",
+      "fuente": "TechCrunch — Amazon snaps up Decart's AI optimization tech for $7.5B as it prepares to sell Trainium chips",
+      "fecha_fuente": "2026-11-23",
+      "impacto": "Si tu costo principal es inferencia en la nube, agenda revisar precios de instancias con Trainium cuando salgan a la venta: la compra apunta justo a quitar la fricción de migrar desde Nvidia."
+    },
+    {
+      "rank": 4,
+      "titulo": "Google DeepMind usa equipos de agentes y verificación formal para abaratar algoritmos cuánticos",
+      "resumen": "Equipos independientes de agentes con Gemini 4 propusieron mejoras que se probaron matemáticamente con el demostrador Lean. En un caso de fusión por confinamiento inercial redujeron 11,8 veces el costo de cómputo y bajaron de 5.650 a 4.338 los qubits corregidos necesarios. Publicaron la biblioteca y las soluciones en GitHub.",
+      "relevancia": 7,
+      "por_que_relevante": "Muestra un patrón replicable fuera de la cuántica: agentes que proponen y un verificador formal que decide qué se acepta.",
+      "categorias": ["Modelos", "Agentes y herramientas"],
+      "categoria": "Modelos",
+      "color": "#9B59B6",
+      "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
+      "fuente": "Google DeepMind — Finding faster quantum algorithms with agents and formal verification",
+      "fecha_fuente": "2026-11-23",
+      "impacto": "La lección práctica es el diseño, no la física: si pones a varios agentes a competir en una tarea, dales un verificador automático (pruebas, tipos, un demostrador) como juez en lugar de otro modelo."
+    },
+    {
+      "rank": 5,
+      "titulo": "Sierra duplica su valoración a 30.000 millones en seis meses con agentes de atención al cliente",
+      "resumen": "Sierra levantó 1.750 millones en una Serie F liderada por Greenoaks y Lightspeed. La empresa dice que atiende a casi la mitad del Fortune 50 y que su cobro por resultados le ayudó a duplicar su facturación anualizada a 400 millones en cinco meses.",
+      "relevancia": 7,
+      "por_que_relevante": "Confirma que la atención al cliente es de los pocos frentes donde los agentes ya se adoptan a escala y se cobran por resultado.",
+      "categorias": ["Finanzas e inversión", "Empresa"],
+      "categoria": "Finanzas e inversión",
+      "color": "#2ECC71",
+      "url": "https://techcrunch.com/2026/11/23/sierra-doubles-valuation-to-30b-within-six-months-as-demand-for-ai-in-cx-takes-off/",
+      "fuente": "TechCrunch — Sierra doubles valuation to $30B within six months as demand for AI in CX takes off",
+      "fecha_fuente": "2026-11-23",
+      "impacto": "Si vendes un producto con agentes, el dato a mirar es el modelo de precio: cobrar por resultado y no por asiento es lo que la compañía señala como motor de su crecimiento."
+    }
+  ],
+  "meta": {
+    "total_items": 5,
+    "relevancia_media": 8.2,
+    "categoria_principal": "Agentes y herramientas"
+  }
+}

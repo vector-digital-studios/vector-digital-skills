@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Feed FICTICIO para pruebas sin red: nombres, enlaces y hechos inventados. -->
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Medio Ejemplo</title>
+<entry><title>Laboratorio Ejemplo launches open-weight model for coding agents</title>
+<link rel="alternate" href="https://medio.example.net/2026/11/23/modelo-abierto"/><published>2026-11-23T16:10:00Z</published>
+<summary>Same story covered by a second outlet (should be deduplicated).</summary></entry>
+<entry><title>Startup Ficticia raises funding to build GPU data center</title>
+<link rel="alternate" href="https://medio.example.net/2026/11/23/ronda"/><updated>2026-11-23T20:00:00Z</updated>
+<summary>Funding round for compute infrastructure.</summary></entry>
+</feed>

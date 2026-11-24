@@ -1,0 +1,50 @@
+# Programa la recolección diaria en GitHub Actions.
+# Qué hace (probado en local, NO ejecutado en GitHub): cada día a las 13:00 UTC (08:00 en UTC-5) corre el
+# recolector sobre tus feeds, guarda candidatas.json como artefacto y la autoprueba de la skill.
+# La redacción la hace un agente: el paso opcional del final usa la CLI de Claude Code con un secreto
+# ANTHROPIC_API_KEY (consume crédito de API; actívalo solo si lo quieres así).
+name: newsletter-ia
+
+on:
+  schedule:
+    - cron: "0 13 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  edicion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Autoprueba (sin red)
+        run: python skills/contenido/newsletter-ia/scripts/autoprueba.py
+      - name: Recolectar candidatas de las últimas 36 h
+        run: |
+          mkdir -p ediciones
+          python skills/contenido/newsletter-ia/scripts/recolectar.py \
+            --fuentes skills/contenido/newsletter-ia/templates/fuentes.example.json \
+            --salida ediciones/candidatas.json > /dev/null
+      - uses: actions/upload-artifact@v4
+        with:
+          name: candidatas
+          path: ediciones/candidatas.json
+      # --- Opcional: redacción con un agente (requiere secreto; no probado en esta versión) ---
+      # - uses: actions/setup-node@v4
+      #   with: { node-version: "22" }
+      # - name: Redactar, verificar y generar la edición
+      #   env:
+      #     ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      #   run: |
+      #     npx -y @anthropic-ai/claude-code -p "$(cat skills/contenido/newsletter-ia/templates/programar/prompt-agente.md)" \
+      #       --allowedTools "Bash(python:*),Read,Write,WebFetch,WebSearch"
+      # - name: Publicar en el repositorio
+      #   run: |
+      #     git config user.name "newsletter-bot"
+      #     git config user.email "newsletter-bot@users.noreply.github.com"
+      #     git add ediciones && git commit -m "newsletter: edición $(date -u -d yesterday +%F)" && git push
