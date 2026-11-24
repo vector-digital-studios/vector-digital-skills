@@ -4,13 +4,13 @@
     "name": "Vector Digital"
   },
   "metadata": {
-    "description": "Skills de agentes de IA probadas en producción por Vector Digital, en español: 14 skills en 8 dominios",
+    "description": "Skills de agentes de IA probadas en producción por Vector Digital, en español: 16 skills en 8 dominios",
     "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "completo",
-      "description": "Todas las skills de Vector Digital de una vez (14 skills en 8 dominios)",
+      "description": "Todas las skills de Vector Digital de una vez (16 skills en 8 dominios)",
       "source": "./",
       "strict": false,
       "skills": [
@@ -18,9 +18,11 @@
         "./skills/contenido/newsletter-ia",
         "./skills/datos/informe-movil",
         "./skills/investigacion/backtest-sin-trampas",
+        "./skills/metodo/consejo-decisiones",
         "./skills/metodo/disciplina-agente",
         "./skills/operacion/disco-c-a-d",
         "./skills/operacion/salud-equipo-windows",
+        "./skills/operacion/v-drop",
         "./skills/operacion/vigilancia-camaras",
         "./skills/salud/registro-comidas",
         "./skills/seguridad/auditoria-repos-terceros",
@@ -61,22 +63,24 @@
     },
     {
       "name": "operacion",
-      "description": "Operación de Windows: vigilancia con cámara y Telegram, salud del equipo y liberar C: sin romper rutas",
+      "description": "Operación: vigilancia con cámara y Telegram, salud del equipo, liberar C: sin romper rutas y compartir archivos por tu WiFi (V Drop)",
       "source": "./",
       "strict": false,
       "skills": [
         "./skills/operacion/vigilancia-camaras",
         "./skills/operacion/salud-equipo-windows",
-        "./skills/operacion/disco-c-a-d"
+        "./skills/operacion/disco-c-a-d",
+        "./skills/operacion/v-drop"
       ]
     },
     {
       "name": "metodo",
-      "description": "Disciplina de ingeniería para agentes: causa raíz, depuración por pasos, cambios mínimos y CAPA",
+      "description": "Método para agentes: causa raíz, depuración por pasos y CAPA, y un consejo de 9 papeles para decisiones difíciles",
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/metodo/disciplina-agente"
+        "./skills/metodo/disciplina-agente",
+        "./skills/metodo/consejo-decisiones"
       ]
     },
     {

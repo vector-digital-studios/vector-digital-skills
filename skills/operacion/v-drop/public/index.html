@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#08090B">
+<title>V Drop · Vector Digital</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" type="image/png" href="/static/icon-192.png">
+<link rel="apple-touch-icon" href="/static/icon-192.png">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --bg-base:#08090B;
+  --bg-surface:#0D0D0F;
+  --bg-raised:#111114;
+  --bg-hover:#1A1A1E;
+  --text-primary:#EDEEF0;
+  --text-secondary:#9A9CA0;
+  --text-tertiary:#5E6065;
+  --accent:#E65100;
+  --accent-soft:#FF8A3D;
+  --accent-dim:rgba(230,81,0,.14);
+  --border-subtle:rgba(255,255,255,.06);
+  --border-default:rgba(255,255,255,.10);
+  --ok:#34D399;
+  --err:#F87171;
+  --radius-sm:6px; --radius-md:10px; --radius-lg:14px;
+  --font-ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",sans-serif;
+  --font-data:ui-monospace,SFMono-Regular,Consolas,"JetBrains Mono",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:var(--bg-base);
+  color:var(--text-primary);
+  font-family:var(--font-ui);
+  font-size:15px;line-height:1.5;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(230,81,0,.35)}
+
+/* ============ MARCA DE AGUA (Alfred) ============ */
+.watermark{
+  position:fixed;z-index:0;pointer-events:none;
+  top:3%;right:-5%;width:46vw;max-width:620px;
+  opacity:.48;
+  -webkit-mask-image:linear-gradient(270deg,#000 30%,transparent 88%);
+  mask-image:linear-gradient(270deg,#000 30%,transparent 88%);
+}
+.watermark::before{
+  content:"";position:absolute;inset:-16%;
+  background:radial-gradient(55% 55% at 60% 42%, rgba(230,81,0,.22) 0%, transparent 70%);
+}
+.watermark img{width:100%;display:block;position:relative;filter:saturate(1.06)}
+.wm-glow{
+  position:fixed;z-index:0;pointer-events:none;
+  top:3%;right:-5%;width:46vw;max-width:620px;
+  height:46vw;max-height:620px;
+}
+
+/* ============ ATMÓSFERA ============ */
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(60% 45% at 50% -5%, rgba(230,81,0,.10) 0%, transparent 65%),
+    radial-gradient(40% 35% at 85% 110%, rgba(230,81,0,.05) 0%, transparent 60%);
+}
+
+/* ============ LAYOUT ============ */
+.wrap{
+  position:relative;z-index:1;
+  max-width:680px;margin:0 auto;
+  padding:clamp(28px,6vh,64px) 20px 48px;
+  min-height:100vh;
+  display:flex;flex-direction:column;
+}
+
+/* header */
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.brand-mark{
+  width:40px;height:40px;border-radius:50%;flex:0 0 auto;
+  display:grid;place-items:center;
+  border:1px solid rgba(230,81,0,.45);
+  position:relative;overflow:hidden;
+}
+.brand-mark img{width:100%;height:100%;object-fit:cover;display:block}
+.brand-mark::after{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  box-shadow:inset 0 0 14px rgba(230,81,0,.30);
+  pointer-events:none;
+}
+.brand-name{
+  font-size:15px;font-weight:600;letter-spacing:-.01em;
+  display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
+}
+.brand-name b{color:var(--text-primary)}
+.brand-name .sep{color:var(--text-tertiary);font-weight:400}
+.brand-name span{color:var(--accent-soft)}
+.status{
+  margin-left:auto;display:inline-flex;align-items:center;gap:7px;
+  font-size:11px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--text-secondary);
+  border:1px solid var(--border-subtle);
+  background:var(--bg-raised);
+  padding:5px 11px;border-radius:999px;
+}
+.status .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);position:relative}
+.status .dot::after{
+  content:"";position:absolute;inset:-3px;border-radius:50%;
+  border:1px solid rgba(52,211,153,.5);
+  animation:pulse 2.2s ease-out infinite;
+}
+@keyframes pulse{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.5);opacity:0}}
+
+h1{
+  margin-top:clamp(26px,5vh,48px);
+  font-size:clamp(30px,6vw,42px);
+  font-weight:600;letter-spacing:-.022em;line-height:1.12;
+}
+h1 .grad{
+  background:linear-gradient(135deg,#FFFFFF 0%,#FFB066 55%,#FF6A00 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  -webkit-text-fill-color:transparent;
+}
+.sub{
+  margin-top:12px;color:var(--text-secondary);
+  font-size:clamp(14px,2.4vw,16px);max-width:52ch;
+}
+.sub b{color:var(--text-primary);font-weight:500}
+.hint{margin-top:6px;color:var(--text-tertiary);font-size:13px}
+
+/* ============ DROPZONE ============ */
+.dropzone{
+  margin-top:clamp(28px,5vh,44px);
+  background:var(--bg-surface);
+  border:1.5px dashed var(--border-default);
+  border-radius:var(--radius-lg);
+  padding:clamp(36px,8vh,64px) 24px;
+  text-align:center;cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:border-color .25s ease, background .25s ease, transform .25s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.dropzone::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(55% 70% at 50% 0%, var(--accent-dim) 0%, transparent 70%);
+  opacity:0;transition:opacity .3s ease;
+}
+.dropzone:hover,.dropzone.drag{
+  border-color:rgba(230,81,0,.65);
+  background:var(--bg-raised);
+}
+.dropzone:hover::before,.dropzone.drag::before{opacity:1}
+.dropzone.drag{transform:scale(1.015)}
+.dz-icon{
+  width:64px;height:64px;margin:0 auto 18px;border-radius:16px;
+  display:grid;place-items:center;
+  background:var(--bg-raised);
+  border:1px solid var(--border-default);
+  transition:transform .3s ease;
+}
+.dropzone.drag .dz-icon{transform:translateY(-4px)}
+.dz-icon svg{width:28px;height:28px}
+.dz-main{font-size:17px;font-weight:500;letter-spacing:-.01em}
+.dz-main b{color:var(--accent-soft);font-weight:600}
+.dz-sub{margin-top:6px;color:var(--text-secondary);font-size:13.5px}
+.dz-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-top:20px;
+  background:linear-gradient(135deg,#E65100,#C74800);
+  color:#FFF7F0;border:none;border-radius:var(--radius-sm);
+  font-family:inherit;font-size:14px;font-weight:500;
+  padding:10px 22px;cursor:pointer;
+  transition:filter .2s ease, transform .15s ease;
+}
+.dz-btn:hover{filter:brightness(1.12)}
+.dz-btn:active{transform:scale(.97)}
+.dz-btn svg{width:16px;height:16px}
+.dropzone input[type=file]{display:none}
+
+/* ============ TRANSFER ============ */
+.transfers{margin-top:24px;display:flex;flex-direction:column;gap:10px}
+.transfer{
+  background:var(--bg-surface);
+  border:1px solid var(--border-subtle);
+  border-radius:var(--radius-md);
+  padding:14px 16px;
+  animation:slideIn .35s cubic-bezier(.21,.61,.35,1) both;
+}
+@keyframes slideIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.t-row{display:flex;align-items:center;gap:12px}
+.t-ico{
+  width:34px;height:34px;border-radius:8px;flex:0 0 auto;
+  display:grid;place-items:center;background:var(--bg-raised);
+  border:1px solid var(--border-subtle);
+}
+.t-ico svg{width:16px;height:16px}
+.t-info{flex:1;min-width:0}
+.t-name{
+  font-size:13.5px;font-weight:500;letter-spacing:-.01em;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.t-meta{
+  font-family:var(--font-data);font-size:11px;color:var(--text-tertiary);
+  font-variant-numeric:tabular-nums;margin-top:2px;
+}
+.t-meta .speed{color:var(--text-secondary)}
+.t-pct{
+  font-family:var(--font-data);font-size:13px;font-weight:600;
+  color:var(--accent-soft);font-variant-numeric:tabular-nums;
+  min-width:44px;text-align:right;
+}
+.t-bar{
+  margin-top:10px;height:4px;border-radius:99px;
+  background:rgba(255,255,255,.06);overflow:hidden;
+}
+.t-bar i{
+  display:block;height:100%;width:0%;
+  border-radius:99px;
+  background:linear-gradient(90deg,#E65100,#FF8A3D);
+  transition:width .18s ease;
+}
+.t-state{display:none}
+.transfer.done .t-pct{color:var(--ok)}
+.transfer.done .t-ico svg{stroke:var(--ok)}
+.transfer.done .t-bar i{background:var(--ok)}
+.transfer.error .t-pct{color:var(--err)}
+.transfer.error .t-bar i{background:var(--err)}
+
+/* check animado */
+.check-svg{width:18px;height:18px;display:none}
+.transfer.done .check-svg{display:block}
+.check-svg circle,.check-svg path{fill:none;stroke:var(--ok);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.check-svg circle{stroke-dasharray:52;stroke-dashoffset:52;animation:draw .5s ease forwards}
+.check-svg path{stroke-dasharray:24;stroke-dashoffset:24;animation:draw .35s .35s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* ============ HISTORIAL ============ */
+.history{
+  margin-top:clamp(32px,6vh,52px);
+  background:var(--bg-surface);
+  border:1px solid var(--border-subtle);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+}
+.history-head{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 18px;
+  border-bottom:1px solid var(--border-subtle);
+}
+.history-head h2{
+  font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--text-secondary);
+}
+.history-head .count{
+  font-family:var(--font-data);font-size:11px;color:var(--text-tertiary);
+  background:var(--bg-raised);border:1px solid var(--border-subtle);
+  border-radius:999px;padding:2px 8px;
+}
+.history-clear{
+  margin-left:auto;background:none;border:none;cursor:pointer;
+  color:var(--text-tertiary);font-family:inherit;font-size:12px;
+  padding:4px 8px;border-radius:var(--radius-sm);
+  transition:color .2s ease, background .2s ease;
+}
+.history-clear:hover{color:var(--err);background:rgba(248,113,113,.08)}
+.hist-item{
+  display:flex;align-items:center;gap:12px;
+  padding:11px 18px;
+  border-bottom:1px solid var(--border-subtle);
+  animation:slideIn .3s ease both;
+}
+.hist-item:last-child{border-bottom:none}
+.hist-item .t-ico{width:30px;height:30px}
+.hist-name{
+  flex:1;min-width:0;
+  font-size:13px;font-weight:500;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.hist-size{font-family:var(--font-data);font-size:11.5px;color:var(--text-secondary);font-variant-numeric:tabular-nums}
+.hist-when{font-family:var(--font-data);font-size:11px;color:var(--text-tertiary);font-variant-numeric:tabular-nums}
+.empty{
+  padding:22px 18px;text-align:center;
+  color:var(--text-tertiary);font-size:13px;
+}
+.hidden{display:none!important}
+
+/* footer */
+.foot{
+  margin-top:auto;padding-top:clamp(32px,6vh,48px);
+  display:flex;flex-direction:column;gap:4px;
+  text-align:center;
+  color:var(--text-tertiary);font-size:12px;
+}
+.foot .brand-line{font-family:var(--font-data);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-secondary)}
+.foot b{color:var(--accent-soft);font-weight:500}
+
+/* toast */
+#toast{
+  position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);
+  background:var(--bg-overlay,#16171A);
+  border:1px solid var(--border-default);
+  border-radius:var(--radius-md);
+  padding:11px 18px;font-size:13.5px;color:var(--text-primary);
+  opacity:0;pointer-events:none;
+  transition:opacity .3s ease, transform .3s ease;
+  z-index:50;max-width:min(92vw,420px);text-align:center;
+  box-shadow:0 16px 40px rgba(0,0,0,.55);
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#toast.err{border-color:rgba(248,113,113,.4)}
+
+/* ============ V2: DISPOSITIVOS ============ */
+.devbar{
+  margin-top:16px;
+  display:flex;align-items:center;gap:8px;
+  background:var(--bg-surface);
+  border:1px solid var(--border-subtle);
+  border-radius:999px;
+  padding:8px 16px;
+  font-size:12.5px;color:var(--text-secondary);
+  cursor:pointer;user-select:none;
+  transition:border-color .2s ease, background .2s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.devbar:hover{background:var(--bg-raised);border-color:var(--border-default)}
+.devbar-dot{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:0 0 auto}
+.devbar b{color:var(--text-primary);font-weight:600}
+.overlay{
+  position:fixed;inset:0;z-index:60;
+  background:rgba(4,5,6,.66);
+  display:flex;align-items:flex-end;justify-content:center;
+  animation:fadeIn .22s ease both;
+  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.sheet{
+  width:100%;max-width:440px;
+  background:var(--bg-surface);
+  border:1px solid var(--border-default);
+  border-radius:18px 18px 0 0;
+  padding:18px 20px calc(20px + env(safe-area-inset-bottom));
+  animation:sheetUp .3s cubic-bezier(.21,.61,.35,1) both;
+  max-height:86vh;overflow-y:auto;
+}
+@keyframes sheetUp{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+@media (min-width:640px){
+  .overlay{align-items:center}
+  .sheet{border-radius:18px;box-shadow:0 24px 70px rgba(0,0,0,.6)}
+}
+.sheet-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.sheet-head h3{font-size:15px;font-weight:600;letter-spacing:-.01em}
+.sheet-x{
+  margin-left:auto;background:none;border:none;cursor:pointer;
+  color:var(--text-tertiary);font-size:15px;padding:6px 8px;border-radius:var(--radius-sm);
+  transition:color .2s ease, background .2s ease;
+}
+.sheet-x:hover{color:var(--text-primary);background:var(--bg-hover)}
+.devrow{
+  display:flex;align-items:center;gap:12px;width:100%;
+  background:var(--bg-raised);
+  border:1px solid var(--border-subtle);
+  border-radius:var(--radius-md);
+  padding:11px 14px;margin-bottom:8px;
+  font-family:inherit;color:var(--text-primary);text-align:left;cursor:pointer;
+  transition:border-color .2s ease, background .2s ease, transform .12s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.devrow:hover{border-color:rgba(230,81,0,.4);background:var(--bg-hover)}
+.devrow:active{transform:scale(.985)}
+.d-ico{
+  width:38px;height:38px;border-radius:10px;flex:0 0 auto;
+  display:grid;place-items:center;font-size:18px;
+  background:var(--bg-surface);border:1px solid var(--border-subtle);
+}
+.d-txt{flex:1;min-width:0}
+.d-name{display:block;font-size:13.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.d-model{display:block;font-size:11.5px;color:var(--text-tertiary);margin-top:1px}
+.d-dot{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:0 0 auto}
+.sheet-foot{margin-top:14px;padding-top:14px;border-top:1px solid var(--border-subtle)}
+.btn-primary{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:linear-gradient(135deg,#E65100,#C74800);
+  color:#FFF7F0;border:none;border-radius:var(--radius-sm);
+  font-family:inherit;font-size:14px;font-weight:500;
+  padding:11px 20px;cursor:pointer;width:100%;
+  transition:filter .2s ease, transform .15s ease;
+}
+.btn-primary:hover{filter:brightness(1.12)}
+.btn-primary:active{transform:scale(.98)}
+.btn-ghost{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--bg-raised);color:var(--text-secondary);
+  border:1px solid var(--border-default);border-radius:var(--radius-sm);
+  font-family:inherit;font-size:14px;font-weight:500;
+  padding:10px 20px;cursor:pointer;width:100%;
+  transition:border-color .2s ease, color .2s ease;
+}
+.btn-ghost:hover{color:var(--text-primary);border-color:rgba(255,255,255,.2)}
+.name-edit{display:flex;gap:8px;align-items:center}
+.name-edit input{
+  flex:1;min-width:0;
+  background:var(--bg-raised);border:1px solid var(--border-default);border-radius:var(--radius-sm);
+  color:var(--text-primary);font-family:inherit;font-size:14px;padding:10px 12px;
+  outline:none;transition:border-color .2s ease;
+}
+.name-edit input:focus{border-color:rgba(230,81,0,.6)}
+.name-edit .btn-primary{width:auto;padding:10px 18px}
+.req{text-align:center;padding-top:26px}
+.req-ico{
+  width:52px;height:52px;margin:0 auto 12px;border-radius:14px;
+  display:grid;place-items:center;font-size:24px;
+  background:var(--bg-raised);border:1px solid rgba(230,81,0,.35);
+}
+.req-title{font-size:15px;font-weight:600}
+.req-file{margin-top:8px;font-size:13.5px;color:var(--text-secondary);word-break:break-all}
+.req-size{margin-top:2px;font-family:var(--font-data);font-size:11.5px;color:var(--text-tertiary)}
+.req-actions{display:flex;gap:10px;margin-top:18px}
+.req-actions .btn-ghost{flex:1}
+.req-actions .btn-primary{flex:1}
+.transfer.wait .t-pct{color:#FFB066}
+.transfer.wait .t-bar i{background:linear-gradient(90deg,#E65100,#FFB066);animation:waitPulse 1.6s ease-in-out infinite}
+@keyframes waitPulse{0%,100%{opacity:.55}50%{opacity:1}}
+.transfer.ok .t-pct{color:var(--ok)}
+.transfer.ok .t-bar i{background:var(--ok)}
+.transfer.no .t-pct{color:var(--err)}
+.transfer.no .t-bar i{background:var(--err)}
+.hist-send{
+  background:none;border:none;cursor:pointer;flex:0 0 auto;
+  color:var(--text-tertiary);font-size:15px;padding:6px 8px;border-radius:var(--radius-sm);
+  transition:color .2s ease, background .2s ease;
+}
+.hist-send:hover{color:var(--accent-soft);background:rgba(230,81,0,.1)}
+.sheet-note{font-size:12.5px;color:var(--text-tertiary);text-align:center;padding:10px 0 4px}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:560px){
+  .wrap{padding:22px 16px 36px}
+  .brand-name{font-size:14px}
+  .status span{display:none}
+  .status{margin-left:auto}
+  .hist-when{display:none}
+  .watermark{
+    top:-4%;right:-10%;width:96vw;opacity:.42;
+    -webkit-mask-image:linear-gradient(270deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.45) 45%, transparent 96%);
+    mask-image:linear-gradient(270deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.45) 45%, transparent 96%);
+  }
+  .watermark::before{background:radial-gradient(55% 55% at 60% 42%, rgba(230,81,0,.16) 0%, transparent 70%)}
+  .wm-glow{top:-4%;right:-10%;width:96vw;height:96vw}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="watermark" aria-hidden="true">
+  <img src="/static/alfred.png" alt="">
+</div>
+<canvas class="wm-glow" aria-hidden="true"></canvas>
+
+<div class="wrap">
+  <header class="brand">
+    <div class="brand-mark">
+      <img src="/static/logo-vdrop.png" alt="V Drop">
+    </div>
+    <div class="brand-name">
+      <b>Vector Digital</b><span class="sep">·</span><span>V Drop</span>
+    </div>
+    <div class="status"><span class="dot"></span><span>En línea</span></div>
+  </header>
+
+  <h1>Deje el archivo.<br><span class="grad">Yo me encargo.</span></h1>
+  <p class="sub">Subida directa por la red local: <b>el archivo no sale de su casa</b>, no se comprime y llega intacto a la laptop.</p>
+  <p class="hint">Sin cables · Sin cuentas · Sin límite de tamaño práctico</p>
+
+  <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Zona de subida de archivos">
+    <div class="dz-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#FF8A3D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 16V4m0 0l-4.5 4.5M12 4l4.5 4.5"/>
+        <path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/>
+      </svg>
+    </div>
+    <p class="dz-main">Arrastre el archivo <b>aquí</b></p>
+    <p class="dz-sub">o toque para elegirlo desde el teléfono</p>
+    <button class="dz-btn" id="pickBtn" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+      Seleccionar archivo
+    </button>
+    <input type="file" id="fileInput" multiple>
+  </div>
+
+  <div class="transfers" id="transfers"></div>
+
+  <div class="devbar hidden" id="devbar" role="button" tabindex="0" aria-label="Dispositivos en la red">
+    <span class="devbar-dot"></span>
+    <span id="devLabel">0 dispositivos en la red</span>
+  </div>
+
+  <section class="history" id="historySection">
+    <div class="history-head">
+      <h2>Entregas recientes</h2>
+      <span class="count" id="histCount">0</span>
+      <button class="history-clear" id="clearHist">Limpiar</button>
+    </div>
+    <div id="histList"><div class="empty">Aún no hay entregas en esta sala.</div></div>
+  </section>
+
+  <footer class="foot">
+    <div class="brand-line">Vector Digital <b>·</b> V Drop</div>
+    <div>Transferencia directa por red local · El archivo jamás toca un servidor externo</div>
+  </footer>
+</div>
+
+<div class="overlay hidden" id="sheetOverlay">
+  <div class="sheet" role="dialog" aria-modal="true" aria-label="Dispositivos">
+    <div class="sheet-head">
+      <h3 id="sheetTitle">Dispositivos</h3>
+      <button class="sheet-x" id="sheetClose" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="sheet-body" id="sheetBody"></div>
+    <div class="sheet-foot" id="sheetFoot"></div>
+  </div>
+</div>
+
+<div class="overlay hidden" id="reqOverlay">
+  <div class="sheet req" role="dialog" aria-modal="true" aria-label="Solicitud de archivo">
+    <div class="req-ico">📥</div>
+    <p class="req-title" id="reqTitle">Solicitud de archivo</p>
+    <p class="req-file" id="reqFile"></p>
+    <p class="req-size" id="reqSize"></p>
+    <div class="req-actions">
+      <button class="btn-ghost" id="reqDecline">Rechazar</button>
+      <button class="btn-primary" id="reqAccept">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay hidden" id="noAccessOverlay">
+  <div class="sheet req">
+    <div class="req-ico">🔒</div>
+    <p class="req-title">Enlace sin acceso</p>
+    <p class="req-file">Este enlace no incluye la llave de acceso. Usa la URL completa que te compartieron (incluye <b>?k=…</b>).</p>
+  </div>
+</div>
+
+<div id="toast" role="status"></div>
+
+<script>
+(function(){
+  "use strict";
+  /* diagnostico de layout: ?debug=1 escribe los rects en el titulo */
+  if(location.search.indexOf("debug=1") !== -1){
+    window.addEventListener("error", function(e){
+      document.title = "JS-ERROR: " + (e.message || e);
+    });
+    var r = function(sel){
+      var el = document.querySelector(sel);
+      if(!el) return null;
+      var b = el.getBoundingClientRect();
+      return Math.round(b.x)+","+Math.round(b.y)+" " + Math.round(b.width)+"x"+Math.round(b.height)+" R:"+Math.round(b.right);
+    };
+    document.title = "DBG iw="+innerWidth+" sw="+document.documentElement.scrollWidth+" wrap["+r(".wrap")+"] dz["+r(".dropzone")+"] hist["+r(".history")+"]";
+    /* simular viewport movil de 390px para capturas QA */
+    var st = document.createElement("style");
+    st.textContent = ".wrap{max-width:390px !important}";
+    document.head.appendChild(st);
+  }
+  var TOKEN = (new URLSearchParams(location.search)).get("k") || localStorage.getItem("vdrop_token") || "";
+  if((new URLSearchParams(location.search)).get("k")){
+    localStorage.setItem("vdrop_token", TOKEN);
+  }
+  var dropzone = document.getElementById("dropzone");
+  var fileInput = document.getElementById("fileInput");
+  var transfers = document.getElementById("transfers");
+  var queue = [];
+
+  /* ---------- V2: estado de dispositivos ---------- */
+  var cid = "", myName = "", myModel = "Dispositivo", myPlatform = "other";
+  var devices = [], pendingFiles = [], pendingHistoryName = null;
+  var reqQueue = [], reqActive = false, lastTargetName = "";
+
+  /* ---------- helpers ---------- */
+  function fmtBytes(n){
+    if(n < 1024) return n + " B";
+    var u = ["KB","MB","GB","TB"], i = -1;
+    do{ n /= 1024; i++; }while(n >= 1024 && i < u.length-1);
+    return n.toFixed(n >= 100 ? 0 : 1) + " " + u[i];
+  }
+  function fmtSpeed(bps){
+    if(!bps) return "—";
+    return fmtBytes(bps) + "/s";
+  }
+  function toast(msg, isErr){
+    var t = document.getElementById("toast");
+    t.textContent = msg;
+    t.className = isErr ? "err" : "";
+    t.classList.add("show");
+    clearTimeout(t._h);
+    t._h = setTimeout(function(){ t.classList.remove("show"); }, 3200);
+  }
+  function esc(s){
+    var d = document.createElement("div");
+    d.textContent = s;
+    return d.innerHTML;
+  }
+  function icoSVG(){
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/></svg>';
+  }
+
+  /* ---------- cola de subida ---------- */
+  function addTransfer(file, to){
+    var card = document.createElement("div");
+    card.className = "transfer";
+    card.innerHTML =
+      '<div class="t-row">' +
+        '<div class="t-ico">' + icoSVG() + '</div>' +
+        '<div class="t-info">' +
+          '<div class="t-name">' + esc(file.name) + '</div>' +
+          '<div class="t-meta"><span class="speed"></span> · <span class="eta"></span></div>' +
+        '</div>' +
+        '<div class="t-pct">0%</div>' +
+        '<svg class="check-svg" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8.2"/><path d="M5.5 9.2l2.3 2.3 4.7-4.8"/></svg>' +
+      '</div>' +
+      '<div class="t-bar"><i></i></div>';
+    transfers.appendChild(card);
+    uploadFile(file, card, to);
+  }
+
+  function uploadFile(file, card, to){
+    var bar = card.querySelector(".t-bar i");
+    var pct = card.querySelector(".t-pct");
+    var speedEl = card.querySelector(".speed");
+    var etaEl = card.querySelector(".eta");
+    var fd = new FormData();
+    fd.append("files", file);
+    if(to){ fd.append("to", to); }
+    if(to){ lastTargetName = deviceName(to); }
+    var xhr = new XMLHttpRequest();
+    var lastLoaded = 0, lastT = Date.now(), speed = 0;
+
+    xhr.upload.onprogress = function(e){
+      if(!e.lengthComputable) return;
+      var now = Date.now();
+      var dt = (now - lastT) / 1000;
+      if(dt >= 0.8){
+        speed = (e.loaded - lastLoaded) / dt;
+        lastLoaded = e.loaded; lastT = now;
+      }
+      var p = Math.round(e.loaded / e.total * 100);
+      bar.style.width = p + "%";
+      pct.textContent = p + "%";
+      if(speed > 0){
+        speedEl.textContent = fmtSpeed(speed);
+        var remain = (e.total - e.loaded) / speed;
+        etaEl.textContent = remain > 1 ? "restan " + Math.ceil(remain) + " s" : "casi listo";
+      }
+    };
+    xhr.onload = function(){
+      var resp = {};
+      try{ resp = JSON.parse(xhr.responseText); }catch(_){}
+      if(xhr.status === 200 && resp.ok){
+        if(resp.transfers && resp.transfers.length){
+          card.setAttribute("data-tid", resp.transfers[0].tid);
+          card.classList.add("wait");
+          pct.textContent = "Esperando";
+          bar.style.width = "100%";
+          speedEl.textContent = "enviado a " + (lastTargetName || "dispositivo");
+          etaEl.textContent = "esperando aceptación…";
+        }else{
+          card.classList.add("done");
+          pct.textContent = "Listo";
+          bar.style.width = "100%";
+          toast("Recibido: " + resp.files.map(function(f){return f.name;}).join(", "));
+          loadHistory();
+          setTimeout(function(){ card.style.opacity = "0"; card.style.transition = "opacity .5s"; }, 2600);
+          setTimeout(function(){ card.remove(); }, 3200);
+        }
+      }else{
+        card.classList.add("error");
+        pct.textContent = "Error";
+        toast((resp.error || "falló la subida") + " (" + xhr.status + ")", true);
+      }
+      next();
+    };
+    xhr.onerror = function(){
+      card.classList.add("error");
+      pct.textContent = "Error";
+      toast("No se pudo conectar con la laptop", true);
+      next();
+    };
+    xhr.upload.onloadstart = function(){ speedEl.textContent = "enviando…"; };
+    var upQs = TOKEN ? "?k=" + TOKEN : "?";
+    if(TOKEN) upQs += "&";
+    upQs += "cid=" + encodeURIComponent(cid);
+    xhr.open("POST", "/upload" + upQs);
+    xhr.setRequestHeader("X-Alfred-Token", TOKEN);
+    xhr.send(fd);
+  }
+
+  function next(){
+    queue.shift();
+    pump();
+  }
+
+  function pump(){
+    if(!queue.length) return;
+    var item = queue[0];
+    if(item._active) return;
+    item._active = true;
+    addTransfer(item.file, item.to);
+  }
+
+  function enqueue(files){
+    var list = Array.prototype.slice.call(files);
+    list.forEach(function(f){
+      if(f.size === 0){ toast("El archivo está vacío: " + f.name, true); return; }
+      pendingFiles.push(f);
+    });
+    if(!pendingFiles.length) return;
+    if(onlineDevices().length > 0){ openSheet("send"); }
+    else { commitSend(null); }
+  }
+
+  /* ---------- V2: red de dispositivos ---------- */
+  function onlineDevices(){
+    return devices.filter(function(d){ return d.cid !== cid; });
+  }
+  function deviceName(dcid){
+    var d = devices.filter(function(x){ return x.cid === dcid; })[0];
+    return d ? d.name : "dispositivo";
+  }
+  function detectModel(){
+    var ua = navigator.userAgent;
+    if(/iPhone|iPad|iPod/.test(ua)){
+      var m = ua.match(/iPhone OS (\d+)[_ ](\d+)/);
+      var v = m ? (" " + m[1] + "." + m[2]) : "";
+      return {model: "iPhone" + v, platform: /iPad/.test(ua) ? "tablet" : "phone"};
+    }
+    var am = ua.match(/Android [\d.]+; ([^;)]+)/);
+    if(am){ return {model: am[1].trim(), platform: /iPad|tablet/i.test(ua) ? "tablet" : "phone"}; }
+    if(/Windows/.test(ua)) return {model: "PC Windows", platform: "desktop"};
+    if(/Macintosh/.test(ua)) return {model: "Mac", platform: "desktop"};
+    if(/Linux/.test(ua)) return {model: "Linux", platform: "desktop"};
+    return {model: "Dispositivo", platform: "other"};
+  }
+  function register(){
+    var x = new XMLHttpRequest();
+    x.open("POST", "/api/device" + (TOKEN ? "?k=" + TOKEN : ""));
+    x.setRequestHeader("X-Alfred-Token", TOKEN);
+    x.setRequestHeader("Content-Type", "application/json");
+    x.onload = function(){
+      if(x.status !== 200) return;
+      var r = {};
+      try{ r = JSON.parse(x.responseText); }catch(_){}
+      if(r.name) myName = r.name;
+      if(r.devices) setDevices(r.devices);
+    };
+    x.send(JSON.stringify({cid: cid, name: myName, model: myModel, platform: myPlatform}));
+  }
+  function setDevices(list){
+    devices = list || [];
+    renderDevbar();
+    if(!document.getElementById("sheetOverlay").classList.contains("hidden")){
+      if(document.getElementById("sheetTitle").textContent.indexOf("Enviar") !== -1) buildSend();
+      else buildManage();
+    }
+  }
+  function renderDevbar(){
+    var bar = document.getElementById("devbar");
+    var n = onlineDevices().length;
+    if(!n){ bar.classList.add("hidden"); return; }
+    bar.classList.remove("hidden");
+    document.getElementById("devLabel").innerHTML =
+      "<b>" + n + "</b> " + (n === 1 ? "dispositivo" : "dispositivos") + " en la red";
+  }
+  function devRowHTML(d){
+    var ico = {phone:"📱", tablet:"📲", desktop:"💻", other:"🖥️"}[d.platform] || "🖥️";
+    return '<button class="devrow" data-cid="' + esc(d.cid) + '">' +
+      '<span class="d-ico">' + ico + '</span>' +
+      '<span class="d-txt"><span class="d-name">' + esc(d.name) + '</span>' +
+      '<span class="d-model">' + esc(d.model || "") + (d.cid === cid ? " · tú" : "") + '</span></span>' +
+      '<span class="d-dot"></span></button>';
+  }
+  function openSheet(mode){
+    var overlay = document.getElementById("sheetOverlay");
+    overlay.classList.remove("hidden");
+    if(mode === "send"){
+      document.getElementById("sheetTitle").textContent = "Enviar a…";
+      buildSend();
+    }else{
+      document.getElementById("sheetTitle").textContent = "Dispositivos en la red";
+      buildManage();
+    }
+  }
+  function closeSheet(){
+    document.getElementById("sheetOverlay").classList.add("hidden");
+    pendingHistoryName = null;
+  }
+  function buildSend(){
+    var list = onlineDevices();
+    var html = list.length ? "" :
+      '<div class="sheet-note">No hay otros dispositivos en la red ahora mismo.</div>';
+    list.forEach(function(d){ html += devRowHTML(d); });
+    document.getElementById("sheetBody").innerHTML = html;
+    document.getElementById("sheetFoot").innerHTML =
+      '<button class="btn-ghost" id="sendLaptop">Solo a la laptop (como antes)</button>';
+    document.getElementById("sendLaptop").addEventListener("click", function(){ commitSend(null); });
+    var rows = document.getElementById("sheetBody").querySelectorAll(".devrow");
+    Array.prototype.forEach.call(rows, function(r){
+      r.addEventListener("click", function(){
+        var t = devices.filter(function(d){ return d.cid === r.getAttribute("data-cid"); })[0];
+        if(t) commitSend(t.cid);
+      });
+    });
+  }
+  function buildManage(){
+    var list = devices;
+    var html = list.length ? "" :
+      '<div class="sheet-note">Solo tú por ahora. Abre esta página en otro dispositivo de la misma red y aparecerá aquí.</div>';
+    list.forEach(function(d){ html += devRowHTML(d); });
+    document.getElementById("sheetBody").innerHTML = html;
+    document.getElementById("sheetFoot").innerHTML =
+      '<div class="name-edit">' +
+      '<input id="myNameInput" maxlength="40" value="' + esc(myName) + '" aria-label="Tu nombre en esta red">' +
+      '<button class="btn-primary" id="saveNameBtn">Guardar</button></div>';
+    document.getElementById("saveNameBtn").addEventListener("click", function(){
+      var v = (document.getElementById("myNameInput").value || "").trim();
+      myName = v || myModel;
+      localStorage.setItem("vdrop_name", myName);
+      register();
+      toast("Nombre actualizado: " + myName);
+    });
+  }
+  function commitSend(toCid){
+    if(pendingHistoryName){
+      sendExisting(pendingHistoryName, toCid);
+      pendingHistoryName = null;
+      closeSheet();
+      return;
+    }
+    pendingFiles.forEach(function(f){ queue.push({file: f, to: toCid}); });
+    pendingFiles = [];
+    lastTargetName = toCid ? deviceName(toCid) : "";
+    closeSheet();
+    pump();
+  }
+  function sendExisting(name, toCid){
+    if(!toCid){ toast("No hay destino seleccionado", true); return; }
+    var x = new XMLHttpRequest();
+    x.open("POST", "/api/transfer" + (TOKEN ? "?k=" + TOKEN : ""));
+    x.setRequestHeader("X-Alfred-Token", TOKEN);
+    x.setRequestHeader("Content-Type", "application/json");
+    x.onload = function(){
+      if(x.status === 200){ toast("Solicitud enviada a " + deviceName(toCid)); }
+      else{
+        var r = {};
+        try{ r = JSON.parse(x.responseText); }catch(_){}
+        toast(r.error || "No se pudo enviar", true);
+      }
+    };
+    x.send(JSON.stringify({to: toCid, name: name, from: cid}));
+  }
+  /* ---------- V2: eventos en vivo ---------- */
+  function connectEvents(){
+    var es = new EventSource("/api/events?cid=" + encodeURIComponent(cid) + (TOKEN ? "&k=" + TOKEN : ""));
+    es.addEventListener("devices", function(e){
+      try{ setDevices(JSON.parse(e.data).devices); }catch(_){}
+    });
+    es.addEventListener("pending", function(e){
+      try{
+        var d = JSON.parse(e.data);
+        (d.pending || []).forEach(enqueueReq);
+        showNextReq();
+      }catch(_){}
+    });
+    es.addEventListener("transfer_request", function(e){
+      try{ enqueueReq(JSON.parse(e.data)); showNextReq(); }catch(_){}
+    });
+    es.addEventListener("transfer_accepted", function(e){
+      try{ onTransferResult(e.data, true); }catch(_){}
+    });
+    es.addEventListener("transfer_declined", function(e){
+      try{ onTransferResult(e.data, false); }catch(_){}
+    });
+  }
+  function onTransferResult(data, ok){
+    var d = JSON.parse(data);
+    var card = document.querySelector('.transfer[data-tid="' + d.tid + '"]');
+    if(card){
+      card.classList.remove("wait");
+      card.classList.add(ok ? "ok" : "no");
+      var pct = card.querySelector(".t-pct");
+      pct.textContent = ok ? "Aceptado" : "Rechazada";
+      if(ok){
+        setTimeout(function(){ card.style.opacity = "0"; card.style.transition = "opacity .5s"; }, 2600);
+        setTimeout(function(){ card.remove(); }, 3200);
+      }
+    }
+    toast(ok ? "«" + d.name + "» fue aceptado" : "«" + d.name + "» fue rechazado", !ok);
+  }
+  function enqueueReq(req){
+    var dup = reqQueue.filter(function(r){ return r.tid === req.tid; }).length;
+    if(!dup && req && req.tid) reqQueue.push(req);
+  }
+  function showNextReq(){
+    if(reqActive || !reqQueue.length) return;
+    var req = reqQueue.shift();
+    reqActive = true;
+    document.getElementById("reqTitle").textContent = "«" + req.from_name + "» quiere enviarte";
+    document.getElementById("reqFile").textContent = req.name;
+    document.getElementById("reqSize").textContent = fmtBytes(req.size || 0);
+    document.getElementById("reqOverlay").classList.remove("hidden");
+    document.getElementById("reqAccept").onclick = function(){ acceptReq(req.tid); };
+    document.getElementById("reqDecline").onclick = function(){ declineReq(req.tid); };
+  }
+  function hideReq(){
+    document.getElementById("reqOverlay").classList.add("hidden");
+  }
+  function acceptReq(tid){
+    var x = new XMLHttpRequest();
+    x.open("PUT", "/api/transfers/" + tid + "/accept" + (TOKEN ? "?k=" + TOKEN : ""));
+    x.setRequestHeader("X-Alfred-Token", TOKEN);
+    x.setRequestHeader("Content-Type", "application/json");
+    x.onload = function(){
+      if(x.status === 200){
+        var r = {};
+        try{ r = JSON.parse(x.responseText); }catch(_){}
+        toast("Descargando…");
+        if(r.download){
+          var sep = r.download.indexOf("?") === -1 ? "?" : "&";
+          startDownload(r.download + sep + (TOKEN ? "k=" + TOKEN + "&" : "") + "cid=" + encodeURIComponent(cid));
+        }
+      }else{
+        toast("No se pudo aceptar", true);
+      }
+      reqActive = false;
+      hideReq();
+      showNextReq();
+    };
+    x.send(JSON.stringify({cid: cid}));
+  }
+  function declineReq(tid){
+    var x = new XMLHttpRequest();
+    x.open("DELETE", "/api/transfers/" + tid + "/decline" + (TOKEN ? "?k=" + TOKEN : ""));
+    x.setRequestHeader("X-Alfred-Token", TOKEN);
+    x.setRequestHeader("Content-Type", "application/json");
+    x.onload = function(){
+      reqActive = false;
+      hideReq();
+      toast("Solicitud rechazada");
+      showNextReq();
+    };
+    x.send(JSON.stringify({cid: cid}));
+  }
+  function startDownload(url){
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "";
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){ a.remove(); }, 600);
+  }
+  function loadTransfers(){
+    var x = new XMLHttpRequest();
+    x.open("GET", "/api/transfers?cid=" + encodeURIComponent(cid) + (TOKEN ? "&k=" + TOKEN : ""));
+    x.setRequestHeader("X-Alfred-Token", TOKEN);
+    x.onload = function(){
+      if(x.status !== 200) return;
+      var r = {};
+      try{ r = JSON.parse(x.responseText); }catch(_){ return; }
+      (r.pending || []).forEach(enqueueReq);
+      showNextReq();
+    };
+    x.send();
+  }
+  function initDevice(){
+    cid = localStorage.getItem("vdrop_cid") || ("d" + Math.random().toString(36).slice(2, 10));
+    localStorage.setItem("vdrop_cid", cid);
+    var det = detectModel();
+    myModel = det.model;
+    myPlatform = det.platform;
+    myName = localStorage.getItem("vdrop_name") || det.model;
+    localStorage.setItem("vdrop_name", myName);
+    register();
+    probeAccess();
+    if("serviceWorker" in navigator && location.search.indexOf("nosse=1") === -1){
+      navigator.serviceWorker.register("/sw.js").catch(function(){});
+    }
+    if(location.search.indexOf("nosse=1") === -1){
+      connectEvents();
+      loadTransfers();
+      setInterval(register, 25000);
+    }
+  }
+  function probeAccess(){
+    var x = new XMLHttpRequest();
+    x.open("GET", "/api/history" + (TOKEN ? "?k=" + TOKEN : ""));
+    x.setRequestHeader("X-Alfred-Token", TOKEN);
+    x.onload = function(){
+      if(x.status === 401) showNoAccess();
+    };
+    x.onerror = function(){ showNoAccess(); };
+    x.send();
+  }
+  function showNoAccess(){
+    document.getElementById("noAccessOverlay").classList.remove("hidden");
+  }
+  document.getElementById("devbar").addEventListener("click", function(){ openSheet("manage"); });
+  document.getElementById("sheetClose").addEventListener("click", closeSheet);
+  document.getElementById("sheetOverlay").addEventListener("click", function(e){
+    if(e.target === this) closeSheet();
+  });
+  document.getElementById("reqOverlay").addEventListener("click", function(e){
+    if(e.target === this){ reqActive = false; hideReq(); showNextReq(); }
+  });
+
+  /* ---------- drag & drop / click ---------- */
+  function prevent(e){ e.preventDefault(); e.stopPropagation(); }
+  ["dragenter","dragover"].forEach(function(ev){
+    dropzone.addEventListener(ev, function(e){ prevent(e); dropzone.classList.add("drag"); });
+  });
+  ["dragleave","drop"].forEach(function(ev){
+    dropzone.addEventListener(ev, function(e){ prevent(e); dropzone.classList.remove("drag"); });
+  });
+  dropzone.addEventListener("drop", function(e){ enqueue(e.dataTransfer.files); });
+  dropzone.addEventListener("click", function(){ fileInput.click(); });
+  fileInput.addEventListener("change", function(){
+    enqueue(fileInput.files);
+    fileInput.value = "";
+  });
+  dropzone.addEventListener("keydown", function(e){
+    if(e.key === "Enter" || e.key === " "){ e.preventDefault(); fileInput.click(); }
+  });
+
+  /* ---------- historial ---------- */
+  function loadHistory(){
+    var x = new XMLHttpRequest();
+    x.open("GET", "/api/history" + (TOKEN ? "?k=" + TOKEN : ""));
+    x.setRequestHeader("X-Alfred-Token", TOKEN);
+    x.onload = function(){
+      if(x.status !== 200) return;
+      var files;
+      try{ files = JSON.parse(x.responseText).files; }catch(_){ return; }
+      var list = document.getElementById("histList");
+      document.getElementById("histCount").textContent = files.length;
+      if(!files.length){
+        list.innerHTML = '<div class="empty">Aún no hay entregas en esta sala.</div>';
+        return;
+      }
+      list.innerHTML = files.slice(0,12).map(function(f){
+        return '<div class="hist-item">' +
+          '<div class="t-ico">' + icoSVG() + '</div>' +
+          '<div class="hist-name">' + esc(f.name) + '</div>' +
+          '<div class="hist-size">' + fmtBytes(f.size) + '</div>' +
+          '<div class="hist-when">' + esc(f.when) + '</div>' +
+          '<button class="hist-send" data-dl="' + esc(f.name) + '" title="Descargar en este dispositivo">⬇</button>' +
+          '<button class="hist-send" data-name="' + esc(f.name) + '" title="Enviar a otro dispositivo">➦</button>' +
+        '</div>';
+      }).join("");
+    };
+    x.send();
+  }
+  document.getElementById("clearHist").addEventListener("click", function(){
+    var x = new XMLHttpRequest();
+    x.open("DELETE", "/api/history" + (TOKEN ? "?k=" + TOKEN : ""));
+    x.setRequestHeader("X-Alfred-Token", TOKEN);
+    x.onload = function(){ if(x.status === 200){ loadHistory(); toast("Historial limpiado"); } };
+    x.send();
+  });
+  loadHistory();
+  document.getElementById("histList").addEventListener("click", function(e){
+    var b = e.target && e.target.closest ? e.target.closest(".hist-send") : null;
+    if(!b) return;
+    if(b.getAttribute("data-dl")){
+      startDownload("/api/download?name=" + encodeURIComponent(b.getAttribute("data-dl")) + (TOKEN ? "&k=" + TOKEN : ""));
+      toast("Descargando…");
+      return;
+    }
+    pendingHistoryName = b.getAttribute("data-name");
+    openSheet("send");
+  });
+  initDevice();
+
+  /* ---------- starfield ---------- */
+  var cv = document.getElementById("stars"), ctx = cv.getContext("2d");
+  var W, H, parts = [], reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function size(){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = cv.width = innerWidth * dpr;
+    H = cv.height = innerHeight * dpr;
+    cv.style.width = innerWidth + "px"; cv.style.height = innerHeight + "px";
+    var n = Math.min(90, Math.floor(innerWidth * innerHeight / 18000));
+    parts = [];
+    for(var i=0;i<n;i++){
+      parts.push({
+        x:Math.random()*W, y:Math.random()*H,
+        r:(Math.random()*1.2+0.4)*dpr,
+        o:Math.random()*0.22+0.06,
+        vy:-(Math.random()*0.10+0.02)*dpr,
+        ph:Math.random()*Math.PI*2, sp:Math.random()*0.02+0.004,
+        warm:Math.random() < 0.35
+      });
+    }
+  }
+  function frame(t){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<parts.length;i++){
+      var p = parts[i];
+      p.y += p.vy;
+      p.x += Math.sin(t*0.0004*p.sp*60 + p.ph) * 0.15 * (W/1200);
+      if(p.y < -4){ p.y = H+4; p.x = Math.random()*W; }
+      if(p.x < -4) p.x = W+4; else if(p.x > W+4) p.x = -4;
+      var a = p.o * (0.6 + 0.4*Math.sin(t*0.001*p.sp*60 + p.ph));
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = p.warm ? "rgba(255,138,61," + a.toFixed(3) + ")" : "rgba(237,238,240," + a.toFixed(3) + ")";
+      ctx.fill();
+    }
+    if(!reduced) requestAnimationFrame(frame);
+  }
+  addEventListener("resize", function(){ clearTimeout(size._h); size._h = setTimeout(size, 200); });
+  document.addEventListener("visibilitychange", function(){
+    if(document.hidden){ reduced = true; gReduced = true; }
+    else if(!matchMedia("(prefers-reduced-motion: reduce)").matches){
+      reduced = false; gReduced = false;
+      requestAnimationFrame(frame);
+      requestAnimationFrame(gframe);
+    }
+  });
+
+  /* ---------- partículas glow del retrato ---------- */
+  var wm = document.querySelector(".watermark");
+  var wmc = document.querySelector(".wm-glow");
+  var gctx = wmc.getContext("2d");
+  var GP = [], gW = 0, gH = 0, gReduced = reduced;
+  function gsize(){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var r = wm.getBoundingClientRect();
+    if(r.width < 20 || r.height < 20) return; // imagen aun no cargo
+    gW = wmc.width = Math.max(1, Math.round(r.width * dpr));
+    gH = wmc.height = Math.max(1, Math.round(r.height * dpr));
+    wmc.style.width = r.width + "px";
+    wmc.style.height = r.height + "px";
+    var n = Math.min(48, Math.round(r.width / 12));
+    GP = [];
+    for(var i = 0; i < n; i++){
+      var bokeh = Math.random() < 0.16;
+      GP.push({
+        x: Math.random()*gW, y: Math.random()*gH,
+        r: (bokeh ? Math.random()*2.4 + 2.6 : Math.random()*2.2 + 1.1)*dpr,
+        o: (bokeh ? Math.random()*0.22 + 0.20 : Math.random()*0.30 + 0.50),
+        vy: -(Math.random()*0.26 + 0.07)*dpr,
+        vx: (Math.random()-0.5)*0.15*dpr,
+        ph: Math.random()*Math.PI*2, sp: Math.random()*0.02 + 0.006,
+        big: bokeh || Math.random() < 0.25
+      });
+    }
+  }
+  function gframe(t){
+    gctx.clearRect(0, 0, gW, gH);
+    for(var i = 0; i < GP.length; i++){
+      var p = GP[i];
+      p.y += p.vy;
+      p.x += p.vx + Math.sin(t*0.0003*p.sp*60 + p.ph)*0.2;
+      if(p.y < -6){ p.y = gH + 6; p.x = Math.random()*gW; }
+      if(p.x < -6) p.x = gW + 6; else if(p.x > gW + 6) p.x = -6;
+      var a = p.o * (0.80 + 0.20*Math.sin(t*0.0012*p.sp*60 + p.ph));
+      // halo suave
+      gctx.beginPath();
+      gctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      gctx.fillStyle = "rgba(230,81,0," + (a*0.35).toFixed(3) + ")";
+      gctx.shadowColor = "rgba(230,81,0," + (a*0.85).toFixed(3) + ")";
+      gctx.shadowBlur = p.big ? 20 : 10;
+      gctx.fill();
+      gctx.shadowBlur = 0;
+      // núcleo brillante (chispa visible)
+      gctx.beginPath();
+      gctx.arc(p.x, p.y, p.r*0.42, 0, Math.PI*2);
+      gctx.fillStyle = "rgba(255,216,170," + (a*0.95).toFixed(3) + ")";
+      gctx.fill();
+    }
+    if(!gReduced) requestAnimationFrame(gframe);
+  }
+  addEventListener("resize", function(){
+    clearTimeout(gsize._h); gsize._h = setTimeout(gsize, 200);
+  });
+  var wmImg = wm.querySelector("img");
+  if(wmImg){
+    wmImg.addEventListener("load", gsize);
+    if(wmImg.complete) gsize();
+  }
+  setTimeout(gsize, 400); // red de seguridad si la imagen tarda
+  gsize();
+  if(location.search.indexOf("debug=1") !== -1){
+    document.title += " glow[" + gW + "x" + gH + " n=" + GP.length + "] wm=" + (wm ? "ok" : "NULL") + " rm=" + matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+  if(!gReduced) requestAnimationFrame(gframe);
+})();
+</script>
+</body>
+</html>

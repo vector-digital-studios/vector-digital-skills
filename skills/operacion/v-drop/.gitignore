@@ -1,0 +1,18 @@
+# runtime state — never commit these
+data/
+uploads/
+backup_v1/
+*.log
+*.tmp
+
+# python
+__pycache__/
+*.pyc
+.venv/
+
+# local operational files (machine-specific)
+static-ip-admin.bat
+
+# OS noise
+Thumbs.db
+.DS_Store

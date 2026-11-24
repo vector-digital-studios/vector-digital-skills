@@ -1,0 +1,5 @@
+consejos/
+__pycache__/
+*.pyc
+*.jsonl
+_cuarto_fable_*/
