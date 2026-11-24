@@ -1,0 +1,51 @@
+# config.example.toml — copia este archivo a <carpeta de datos>/config.toml y ajústalo.
+# Carpeta de datos por defecto: %LOCALAPPDATA%\vigilancia-camaras (o --datos / VIGILANCIA_DATOS).
+# Todo lo que no definas toma el valor por defecto de scripts/vc_comun.py (los mismos de producción).
+# Los secretos (token, chat) y la MAC NO van aquí: van en .env o en variables de entorno.
+
+[presencia]
+# macs = ["xx-xx-xx-xx-xx-xx"]   # mejor por VIGILANCIA_MAC en .env; usa la MAC de HARDWARE del celular
+ticks_ausente = 5                 # lecturas AUSENTE seguidas (×5 min del guardián = 25 min) antes de armar
+ticks_presente = 2                # lecturas PRESENTE seguidas antes de desarmar
+confirmaciones = 3                # barrera anti falsa ausencia: repeticiones antes de armar
+pausa_confirmacion_s = 8          # separación entre repeticiones (~24 s de ventana)
+intentos_por_ip = 4               # intentos de enlace por IP (celular en ahorro de energía)
+pausa_intento_s = 2
+enfriamiento_rearmado_min = 30    # tras un desarme automático, no rearmar en N minutos
+gateway = ""                      # vacío = autodetectar (route print)
+barrido_subred = true             # si la IP del celular cambió por DHCP, barrer el /24
+
+[camara]
+ancho_minimo = 1920               # resolución nativa EXIGIDA: así se reconoce la cámara correcta
+alto_minimo = 1080                # (el índice USB de OpenCV cambia entre reinicios y enchufes)
+pedir_ancho = 1920
+pedir_alto = 1080
+indices = 5
+backend = "dshow"                 # "dshow" (DirectShow) o "msmf" (Media Foundation)
+procesos_a_cerrar = []            # p. ej. ["AppDeMiCamara.exe"] para apagar el LED al desarmar
+
+[deteccion]
+intervalo_s = 10
+umbral_pixel = 45                 # diferencia de gris para contar un píxel como cambiado
+area_minima_px = 30000            # a 640x360 ≈ 13 % del encuadre
+ancho_proceso = 640
+alto_proceso = 360
+fraccion_luz_global = 0.45        # ≥ 45 % del encuadre cambiando a la vez = luz, no persona
+nivel_quemado = 250
+fraccion_quemado = 0.15
+refresco_referencia_frames = 30   # ~5 min con intervalo de 10 s
+calentamiento_s = 4.0
+calentamiento_frames = 15
+
+[alertas]
+enfriamiento_alerta_s = 120       # máx. 1 alerta cada 2 min (las fotos se guardan igual)
+enfriamiento_aviso_camara_min = 60
+enfriamiento_aviso_min = 60
+retencion_dias = 15
+max_fotos_resumen = 20
+
+[guardian]
+python_monitor = ""               # vacío = autodetectar un Python que importe cv2 y numpy
+tarea_guardian = "vigilancia-guardian"   # nombre en el Programador de tareas ("" = no vigilarla)
+latido_max_min = 30
+espera_arranque_s = 8
