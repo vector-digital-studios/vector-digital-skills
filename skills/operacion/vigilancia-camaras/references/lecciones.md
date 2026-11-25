@@ -23,6 +23,7 @@ Se cuentan sin datos personales; la fecha indica el orden en que aparecieron.
 | 16 | No armó con el equipo "enchufado" | Suspensión moderna (Modern Standby) congela todo, incluso en CA | Documentado en `energia-windows.md`; tarea con "activar el equipo para ejecutarla" |
 | 17 | "El guardián está corriendo" se interpretó como "estoy vigilando" | El guardián calla tanto desarmado como armado sin novedades | `estado.py` distingue guardián operando de SISTEMA ARMADO (flag + PID + latido) |
 | 18 | Capturas borradas al desarmar | `rm -rf` de la carpeta en el desarme | Retención por antigüedad (`retencion_dias`, 15 por defecto); el desarme ya no borra |
+| 19 | Una alerta salió con una sola foto y no había con qué comparar | La referencia vivía solo en memoria y el envío tomaba «las dos últimas detecciones» | La referencia a color se guarda como `antes_<sello>` y la alerta siempre es `antes` + `motion` del mismo sello; el mapa (`mapa_<sello>`) se guarda y se envía solo a petición |
 
 ## Hallazgo nuevo al portar (no estaba documentado en el original)
 

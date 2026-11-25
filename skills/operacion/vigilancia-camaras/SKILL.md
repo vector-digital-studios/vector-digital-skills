@@ -1,7 +1,7 @@
 ---
 name: vigilancia-camaras
 description: "Usar para vigilar una cámara en Windows con OpenCV y alertas por Telegram"
-version: 1.0.0
+version: 1.1.0
 author: Vector Digital
 license: MIT
 metadata:
@@ -55,6 +55,10 @@ Configuración: `config.example.toml` → `<datos>/config.toml`; `.env.example` 
 6. **Programar** guardián y vigilante (`references/programar-tareas.md`).
 
 ## Reglas para el agente
+- **Toda alerta lleva ANTES y AHORA** (`antes_<sello>.jpg` = la referencia con la que se comparó, a color y
+  resolución completa; `motion_<sello>.jpg` = la detección), en ese orden, para que el dueño vea el cambio con
+  sus ojos. **El mapa de píxeles cambiados (`mapa_<sello>.jpg`, rojo sobre la foto nueva) NO se envía solo:**
+  solo si el dueño lo pide expresamente. Descríbelo como «píxeles donde cambió el cuadro», no como el objeto.
 - **Estado = `estado.py`.** Nunca digas "estoy vigilando" sin ver `ARMADO` + monitor vivo. El silencio del
   guardián no significa armado.
 - **Desarmar = `desarmar.py`** (mata todas las instancias, quita el flag, manda resumen). Nunca solo borrar

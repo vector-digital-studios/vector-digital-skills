@@ -26,7 +26,7 @@ regla tiene detrás un incidente que no queremos repetir. No publicamos nada que
 | seguridad | [ciberseguridad-vibecoder](skills/seguridad/ciberseguridad-vibecoder/) | Audita y blinda webs, apps, juegos y funciones de IA hechas con agentes: 44 controles, escáner pasivo y puerta antes de publicar | 1.1.0 |
 | seguridad | [sitio-privado-vercel](skills/seguridad/sitio-privado-vercel/) | Login real para un sitio estático en Vercel: cookie HttpOnly firmada, datos solo con sesión, límite de intentos y CSP con buzón de reportes, sin dependencias | 1.0.0 |
 | seguridad | [auditoria-repos-terceros](skills/seguridad/auditoria-repos-terceros/) | Antes de instalar un repo o una skill ajena: seguridad + costo-beneficio → ADOPTAR / CON CONDICIONES / NO ADOPTAR | 1.0.0 |
-| operación | [vigilancia-camaras](skills/operacion/vigilancia-camaras/) | Alarma casera con la cámara del PC: OpenCV sin modelos de IA, alertas con foto por Telegram, armado automático cuando tu celular sale de casa | 1.0.0 |
+| operación | [vigilancia-camaras](skills/operacion/vigilancia-camaras/) | Alarma casera con la cámara del PC: OpenCV sin modelos de IA, alertas con foto por Telegram, armado automático cuando tu celular sale de casa | 1.1.0 |
 | operación | [salud-equipo-windows](skills/operacion/salud-equipo-windows/) | Diagnóstico de batería, temperatura, USB, memoria y arranque en Windows, con informe de semáforos | 1.0.0 |
 | operación | [v-drop](skills/operacion/v-drop/) | "AirDrop" casero: pasa archivos entre el celular y el PC por tu propio WiFi, sin nube ni cuentas, cero dependencias | 2.0.0 |
 | operación | [disco-c-a-d](skills/operacion/disco-c-a-d/) | Qué llena tu C: y cómo mover proyectos y cachés (npm, uv, Hugging Face…) a otra unidad **sin romper rutas** | 1.0.0 |

@@ -146,6 +146,16 @@ def main():
                 cv2.imwrite(antes, ref_color)
                 cv2.imwrite(ahora, frame)
                 cv2.imwrite(os.path.join(rutas.capturas, f"diff_{sello}.png"), mascara)
+                # Mapa de píxeles cambiados (rojo sobre la foto nueva): se guarda siempre, pero solo
+                # se envía si el dueño lo pide expresamente.
+                try:
+                    m = cv2.resize(mascara, (frame.shape[1], frame.shape[0]), interpolation=cv2.INTER_NEAREST)
+                    capa = frame.copy()
+                    capa[m > 0] = (0, 0, 255)
+                    cv2.imwrite(os.path.join(rutas.capturas, f"mapa_{sello}.jpg"),
+                                cv2.addWeighted(capa, 0.45, frame, 0.55, 0))
+                except Exception as e:  # el mapa es accesorio: nunca debe tumbar la alerta
+                    log(f"MAPA_ERROR:{sello}: {e}")
                 log(f"MOTION_DETECTED:{sello}: {razon}")
                 ref, ref_color = gris, frame
                 _, clip_ref = detector.metricas(ref, det)

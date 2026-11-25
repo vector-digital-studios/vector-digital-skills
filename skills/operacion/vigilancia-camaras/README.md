@@ -24,6 +24,7 @@ se arma **contigo dentro de casa**. Una alarma que manda fotos falsas acaba igno
 - **Detecta movimiento con OpenCV, sin IA**: compara cada cuadro con una referencia y distingue un
   cambio de luz (casi todo el cuadro cambia a la vez) de una persona (cambia una región).
 - **Te manda dos fotos por Telegram**: *antes* y *ahora*, con un máximo de una alerta cada 2 minutos.
+  Guarda además un **mapa de píxeles cambiados** (`mapa_*.jpg`) que no envía salvo que se lo pidas.
 - **Se arma sola cuando tu celular sale de la red** y se desarma cuando vuelve, decidiendo en capa 2
   (ARP / vecinos de red), no por ping: un celular dormido no responde ping pero sigue en el WiFi.
 - **Barrera anti falsa ausencia**: antes de armar repite la sonda varias veces; una sola lectura de

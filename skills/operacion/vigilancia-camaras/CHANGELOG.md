@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0 · 2026-11-24
+- **Mapa de píxeles cambiados** (`mapa_<sello>.jpg`): en cada detección se guarda la foto nueva con los píxeles
+  que cambiaron en rojo. No se envía automáticamente; se entrega solo a petición expresa del dueño.
+- Regla explícita: toda alerta lleva el *antes* (referencia a color y resolución completa) y el *ahora*.
+  Nació de un caso real donde la alerta salió con una sola foto porque la referencia no se guardaba en disco.
+
 ## 1.0.0 · 2026-11-24
 Primera versión pública. Port a Python de los scripts de vigilancia en uso desde julio de 2026.
 
